@@ -11,6 +11,9 @@ model User {
   name String
   active Boolean @default(true)
   memberships Membership[]
+  sessions AuthSession[]
+  studentProfiles Student[]
+  teachingSections Section[]
   createdAt DateTime @default(now())
 }
 model Institution {
@@ -19,6 +22,12 @@ model Institution {
   slug String @unique
   memberships Membership[]
   programs Program[]
+  domains InstitutionDomain[]
+  invitations Invitation[]
+  students Student[]
+  sections Section[]
+  periods Period[]
+  audit AuditEvent[]
   createdAt DateTime @default(now())
 }
 enum Role {
@@ -52,6 +61,141 @@ model Course {
   code String
   credits Int
   program Program @relation(fields: [programId], references: [id])
+  sections Section[]
   @@unique([programId, code])
 }
 
+model AuthSession {
+  id String @id @default(uuid()) @db.Uuid
+  userId String @db.Uuid
+  expiresAt DateTime
+  revokedAt DateTime?
+  user User @relation(fields: [userId], references: [id])
+  @@index([userId])
+}
+model InstitutionDomain {
+  id String @id @default(uuid()) @db.Uuid
+  institutionId String @db.Uuid
+  domain String
+  challenge String
+  verifiedAt DateTime?
+  institution Institution @relation(fields: [institutionId], references: [id])
+  @@unique([institutionId, domain])
+  @@index([domain, verifiedAt])
+}
+model Invitation {
+  id String @id @default(uuid()) @db.Uuid
+  institutionId String @db.Uuid
+  email String
+  role Role
+  tokenHash String @unique
+  expiresAt DateTime
+  acceptedAt DateTime?
+  institution Institution @relation(fields: [institutionId], references: [id])
+  @@index([institutionId, email])
+}
+model Student {
+  id String @id @default(uuid()) @db.Uuid
+  institutionId String @db.Uuid
+  userId String? @db.Uuid
+  email String
+  name String
+  code String
+  institution Institution @relation(fields: [institutionId], references: [id])
+  user User? @relation(fields: [userId], references: [id])
+  enrollments Enrollment[]
+  @@unique([institutionId, email])
+  @@unique([institutionId, code])
+}
+model Period {
+  id String @id @default(uuid()) @db.Uuid
+  institutionId String @db.Uuid
+  name String
+  startsAt DateTime
+  endsAt DateTime
+  institution Institution @relation(fields: [institutionId], references: [id])
+  sections Section[]
+  @@unique([institutionId, name])
+}
+model Section {
+  id String @id @default(uuid()) @db.Uuid
+  institutionId String @db.Uuid
+  courseId String @db.Uuid
+  periodId String @db.Uuid
+  name String
+  teacherId String? @db.Uuid
+  teacher User? @relation(fields: [teacherId], references: [id])
+  institution Institution @relation(fields: [institutionId], references: [id])
+  course Course @relation(fields: [courseId], references: [id])
+  period Period @relation(fields: [periodId], references: [id])
+  enrollments Enrollment[]
+  evaluations Evaluation[]
+  schedules Schedule[]
+  @@unique([courseId, periodId, name])
+  @@index([institutionId, teacherId])
+}
+model Enrollment {
+  id String @id @default(uuid()) @db.Uuid
+  studentId String @db.Uuid
+  sectionId String @db.Uuid
+  createdAt DateTime @default(now())
+  student Student @relation(fields: [studentId], references: [id])
+  section Section @relation(fields: [sectionId], references: [id])
+  grades Grade[]
+  attendance Attendance[]
+  @@unique([studentId, sectionId])
+}
+model Evaluation {
+  id String @id @default(uuid()) @db.Uuid
+  sectionId String @db.Uuid
+  name String
+  weight Int
+  dueAt DateTime
+  section Section @relation(fields: [sectionId], references: [id])
+  grades Grade[]
+  @@index([sectionId])
+}
+model Grade {
+  id String @id @default(uuid()) @db.Uuid
+  enrollmentId String @db.Uuid
+  evaluationId String @db.Uuid
+  score Decimal @db.Decimal(4,2)
+  publishedAt DateTime?
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id])
+  evaluation Evaluation @relation(fields: [evaluationId], references: [id])
+  @@unique([enrollmentId, evaluationId])
+}
+enum AttendanceStatus {
+  PRESENT
+  LATE
+  ABSENT
+  EXCUSED
+}
+model Attendance {
+  id String @id @default(uuid()) @db.Uuid
+  enrollmentId String @db.Uuid
+  date DateTime @db.Date
+  status AttendanceStatus
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id])
+  @@unique([enrollmentId, date])
+}
+model Schedule {
+  id String @id @default(uuid()) @db.Uuid
+  sectionId String @db.Uuid
+  weekday Int
+  startTime String
+  endTime String
+  room String
+  section Section @relation(fields: [sectionId], references: [id])
+  @@unique([sectionId, weekday, startTime])
+}
+model AuditEvent {
+  id String @id @default(uuid()) @db.Uuid
+  institutionId String @db.Uuid
+  actorId String @db.Uuid
+  action String
+  entityId String
+  createdAt DateTime @default(now())
+  institution Institution @relation(fields: [institutionId], references: [id])
+  @@index([institutionId, createdAt])
+}

@@ -1,0 +1,11 @@
+# EduControl 360 — instrucciones de trabajo
+- Entorno principal: Windows/PowerShell. Proyecto y almacén pnpm en disco D.
+- Leer PRODUCT.md, DESIGN.md y docs/STATUS.md antes de ampliar el producto.
+- El prompt maestro completo se conserva en docs-prompt-maestro.txt. Trabajar por fases verificables.
+- Prioridad confirmada: portal estudiante. Dirección visual confirmada: Cuaderno académico.
+- Mantener Next.js y NestJS separados; Next.js emite bearer interno solo en servidor. NestJS verifica sesión, usuario, membresía y tenant.
+- Nunca otorgar permisos solo por dominio o correo, ni incluir notas borrador en respuestas del estudiante.
+- No incluir secretos, .env, backups ni datos personales reales en Git. No crear accesos de demostración que parezcan Google real.
+- Ejecutar pnpm verify y pnpm test:e2e para cambios que afecten el flujo académico o la autenticación. pnpm format:check debe pasar.
+- Las pruebas usan PostgreSQL/Redis reales y fixtures aislados. Google y DNS reales siguen pendientes; no declararlos validados.
+- No implementar todas las fases a la vez ni esconder pendientes con interfaces falsas. Registrar el alcance en STATUS.md.

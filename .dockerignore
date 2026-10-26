@@ -1,0 +1,12 @@
+node_modules
+**/node_modules
+.pnpm-store
+.git
+.env
+.env.*
+**/.env*
+**/.next
+**/dist
+.impeccable/review
+test-results
+playwright-report

@@ -1,1 +1,140 @@
-{"name":"Cuaderno académico","mode":"operate","tokens":{"canvas":"#F7F9FD","surface":"#FFFFFF","ink":"#151B32","muted":"#59637A","accent":"#4F46D5","navy":"#0B1020","line":"#DAE0EC","radius":12},"fonts":{"body":"Geist Variable","heading":"Plus Jakarta Sans Variable"}}
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-26T20:35:26.2412965Z",
+  "title": "Design System: Cuaderno académico",
+  "extensions": {
+    "accessibility": {
+      "focus": "3px solid var(--brand), offset 4px",
+      "mainNavigation": "Named nav; links with aria-current=page",
+      "checkbox": "Visible checkbox 22px; associated activatable label min-height 44px; field grid 22px 1fr.",
+      "tables": "Named focusable regions; mobile cells display data-label",
+      "managementNavigation": "Named nav; buttons with aria-pressed, not tablist"
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Título principal",
+        "purpose": "Títulos de campus; Plus Jakarta Sans Variable."
+      },
+      "body": {
+        "displayName": "Lectura de interfaz",
+        "purpose": "Geist Variable; tablas con cifras tabulares."
+      }
+    },
+    "breakpoints": [
+      {
+        "purpose": "Rail de 210px, rejillas de una columna.",
+        "name": "compact-desktop",
+        "value": "1000px"
+      },
+      {
+        "purpose": "Rail superior, navegación horizontal y tablas apiladas etiquetadas.",
+        "name": "mobile",
+        "value": "700px"
+      }
+    ],
+    "motion": [
+      {
+        "purpose": "Cambio de fondo de botones.",
+        "name": "button-background",
+        "value": "background-color 160ms ease-out"
+      },
+      {
+        "purpose": "Todos los elementos y pseudoelementos con prefers-reduced-motion:reduce.",
+        "name": "reduced-motion",
+        "value": "transition:none!important;animation:none!important;scroll-behavior:auto!important"
+      }
+    ],
+    "shadows": [],
+    "colorMeta": {
+      "success": {
+        "displayName": "Confirmación menta",
+        "role": "semantic"
+      },
+      "canvas": {
+        "displayName": "Papel claro",
+        "role": "neutral"
+      },
+      "navy": {
+        "displayName": "Navy institucional",
+        "role": "neutral"
+      },
+      "accent": {
+        "displayName": "Índigo de acción",
+        "role": "primary"
+      },
+      "brand": {
+        "displayName": "Índigo de marca",
+        "role": "primary"
+      }
+    }
+  },
+  "components": [
+    {
+      "description": "Acción con hover, foco y bloqueo de envío.",
+      "refersTo": "button-primary",
+      "name": "Botón principal",
+      "css": ".ds-primary{font:600 16px \"Geist Variable\",sans-serif;min-height:44px;padding:12px 20px;background:var(--accent,#4f46d5);color:#fff;border:0;border-radius:8px;cursor:pointer;transition:background-color 160ms ease-out}.ds-primary:hover{background:#3f37b4}.ds-primary:disabled{opacity:.55;cursor:not-allowed}.ds-primary:focus-visible{outline:3px solid var(--brand,#6258f7);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none!important}}",
+      "kind": "button",
+      "html": "<button class=\"ds-primary\">Guardar calificación</button>"
+    },
+    {
+      "description": "Acción secundaria; hover índigo claro con texto oscuro conservado.",
+      "refersTo": "button-secondary",
+      "name": "Botón secundario",
+      "css": ".ds-secondary{font:600 16px \"Geist Variable\",sans-serif;min-height:44px;padding:12px 20px;background:#eeedff;color:#433aa5;border:0;border-radius:8px;cursor:pointer;transition:background-color 160ms ease-out}.ds-secondary:hover{background:#dedbff;color:#433aa5}.ds-secondary:disabled{opacity:.55;cursor:not-allowed}.ds-secondary:focus-visible{outline:3px solid var(--brand,#6258f7);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-secondary{transition:none!important}}",
+      "kind": "button",
+      "html": "<button class=\"ds-secondary\">Cambiar institución</button>"
+    },
+    {
+      "css": ".ds-label{display:grid;gap:8px;margin-bottom:8px;font:600 14px \"Geist Variable\",sans-serif}.ds-input{font:16px \"Geist Variable\",sans-serif;width:100%;min-height:44px;padding:12px;border:1px solid #b7c0d3;border-radius:8px;background:#fff;color:var(--ink,#151b32);caret-color:var(--brand,#6258f7)}.ds-input::placeholder{color:#626b7e}.ds-input:focus-visible{outline:3px solid var(--brand,#6258f7);outline-offset:4px}",
+      "kind": "input",
+      "name": "Campo de formulario",
+      "description": "Etiqueta asociada y altura mínima de 44px.",
+      "html": "<label class=\"ds-label\" for=\"ds-name\">Nombre del curso</label><input class=\"ds-input\" id=\"ds-name\" placeholder=\"Nombre del curso\">"
+    },
+    {
+      "css": ".ds-nav{display:grid;gap:8px;padding:20px;background:var(--navy,#0b1020);font:16px \"Geist Variable\",sans-serif}.ds-nav a{display:flex;align-items:center;min-height:44px;padding:12px;color:#c9cde0;text-decoration:none;border-radius:8px}.ds-nav a[aria-current=page]{background:#302c60;color:#fff}.ds-nav a:hover{background:#22243d}.ds-nav a:focus-visible{outline:3px solid var(--brand,#6258f7);outline-offset:4px}@media(max-width:700px){.ds-nav{display:flex;overflow-x:auto}.ds-nav a{white-space:nowrap}}",
+      "kind": "nav",
+      "name": "Navegación institucional",
+      "description": "Enlaces de ruta con aria-current; fila desplazable en móvil.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Navegación principal\"><a href=\"#inicio\" aria-current=\"page\">Inicio</a><a href=\"#cursos\">Mis cursos</a></nav>"
+    },
+    {
+      "description": "Insignia informativa, sin interacción.",
+      "refersTo": "badge",
+      "name": "Código de estudiante",
+      "css": ".ds-badge{display:inline-flex;align-items:center;gap:7px;background:#eeedff;color:#433aa5;padding:6px 10px;border-radius:6px;font:650 12px \"Geist Variable\",sans-serif}",
+      "kind": "chip",
+      "html": "<span class=\"ds-badge\">Código de estudiante</span>"
+    },
+    {
+      "description": "Superficie plana con borde y padding responsive.",
+      "refersTo": "panel",
+      "name": "Panel académico",
+      "css": ".ds-panel{background:var(--surface,#fff);border:1px solid var(--line,#dae0ec);border-radius:var(--radius,12px);padding:28px;color:var(--ink,#151b32);font:16px \"Geist Variable\",sans-serif}.ds-panel h2{font:700 22px/1.25 \"Plus Jakarta Sans Variable\",sans-serif;letter-spacing:-.03em;margin:0 0 16px}.ds-panel p{line-height:1.65;color:var(--muted,#59637a)}@media(max-width:700px){.ds-panel{padding:20px}}",
+      "kind": "card",
+      "html": "<section class=\"ds-panel\"><h2>Calificaciones publicadas</h2><p>Tus docentes todavía no publicaron notas.</p></section>"
+    }
+  ],
+  "narrative": {
+    "dos": [
+      "Do conservar los nombres de estado, las etiquetas de campo y el contexto institucional.",
+      "Do usar cifras tabulares y etiquetas por celda en los registros móviles.",
+      "Do respetar el foco visible y la preferencia de movimiento reducido."
+    ],
+    "overview": "Dirección confirmada por el usuario para EduControl 360. La interfaz web prioriza al estudiante que consulta cursos y calificaciones desde una laptop o un teléfono. La navegación institucional oscura enmarca superficies claras y registros académicos alineados.\n\nLa expresión es institucional y legible. Los estados y los datos publicados tienen prioridad sobre la decoración. El entorno de desarrollo es Windows; el producto es una aplicación web responsive.",
+    "donts": [
+      "Don't presentar datos inventados como información académica real.",
+      "Don't llamar tabs ARIA a los botones de gestión con aria-pressed.",
+      "Don't sustituir las fuentes confirmadas por una tipografía distinta."
+    ],
+    "rules": [],
+    "northStar": "Cuaderno académico",
+    "keyCharacteristics": [
+      "Navegación navy y acciones índigo.",
+      "Datos académicos alineados, con cifras tabulares.",
+      "Contexto institucional persistente y estados escritos.",
+      "Lectura móvil mediante filas apiladas y etiquetadas."
+    ]
+  }
+}

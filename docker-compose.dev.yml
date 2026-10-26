@@ -1,0 +1,21 @@
+# Windows: source files are mounted from D; dependencies remain inside the image.
+services:
+  api:
+    build:
+      target: development
+    command: ["node", "scripts/dev-api.cjs"]
+    environment:
+      NODE_ENV: development
+      API_HOST: 0.0.0.0
+    volumes:
+      - ./apps/api/src:/app/apps/api/src
+      - ./scripts:/app/scripts
+  web:
+    build:
+      target: development
+    command: ["pnpm", "--filter", "@edu/web", "dev"]
+    environment:
+      NODE_ENV: development
+      WATCHPACK_POLLING: "true"
+    volumes:
+      - ./apps/web/src:/app/apps/web/src

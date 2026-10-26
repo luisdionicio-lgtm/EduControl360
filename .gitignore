@@ -10,3 +10,6 @@ coverage/
 .impeccable/review/
 
 .pnpm-store/
+work/
+test-results/
+playwright-report/
