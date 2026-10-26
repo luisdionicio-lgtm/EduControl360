@@ -380,7 +380,7 @@ label {
 input,
 select {
   background: #f9fbff;
-  border-color: #8099bf;
+  border-color: #758caf;
   color: #16345f;
 }
 input::placeholder {
@@ -543,4 +543,8 @@ input::placeholder {
   .table-wrap td {
     border-color: #d8e4f5;
   }
+}
+
+.demo-profile.tone-2 .demo-enter {
+  color: #ad4d08;
 }

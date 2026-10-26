@@ -25,7 +25,7 @@ colors:
   secondary-ink: "#2354ae"
   secondary-hover: "#cddfff"
   input: "#f9fbff"
-  input-border: "#8099bf"
+  input-border: "#758caf"
   error: "#ba2944"
   notice: "#fff4db"
   notice-ink: "#77541c"
@@ -179,5 +179,4 @@ Tres perfiles locales explícitos: estudiante Lucía Torres, docente Diego Mendo
 - **Don't** confundir datos ficticios persistentes con producción o autenticación Google.
 
 La demo activa utiliza un único grupo Compose propio; el grupo inicial está detenido y sus volúmenes conservados. Esto describe el entorno actual, no un token visual.
-
-
+El CTA textual naranja de la demo utiliza #ad4d08 sobre blanco para conservar contraste; los iconos mantienen el naranja vivo.
