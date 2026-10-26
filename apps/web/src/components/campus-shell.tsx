@@ -1,3 +1,4 @@
+import { CampusSearch } from "./campus-search";
 import Link from "next/link";
 import {
   LayoutDashboard,
@@ -127,6 +128,7 @@ export function CampusShell({
                   : (studentItems.find((i) => i[1] === active)?.[0] ?? "Mi cuenta")}
             </strong>
           </div>
+          <CampusSearch institutionId={institutionId} />
           <div className="topbar-right">
             <time>
               {new Date().toLocaleDateString("es-PE", {

@@ -548,3 +548,268 @@ input::placeholder {
 .demo-profile.tone-2 .demo-enter {
   color: #ad4d08;
 }
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+.campus-search {
+  position: relative;
+  max-width: 430px;
+  flex: 1;
+  margin: 0 20px;
+}
+.campus-search form {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: #ffffffb3;
+  border: 1px solid #bdcee9;
+  border-radius: 12px;
+  padding: 0 11px;
+}
+.campus-search input {
+  background: none;
+  border: 0;
+  min-height: 42px;
+  padding: 9px 0;
+  font-size: 12px;
+  min-width: 0;
+}
+.campus-search form > button {
+  border: 0;
+  background: #e4edff;
+  color: #2054ac;
+  padding: 8px 10px;
+  border-radius: 7px;
+  font-size: 11px;
+}
+.search-results {
+  position: absolute;
+  z-index: 10;
+  top: 50px;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #b6c9e8;
+  box-shadow: 0 14px 30px #16365b20;
+  border-radius: 12px;
+  padding: 30px 15px 12px;
+}
+.search-results a {
+  display: block;
+  padding: 12px;
+  font-size: 12px;
+}
+.search-results p {
+  font-size: 12px;
+}
+.search-close {
+  position: absolute;
+  right: 8px;
+  top: 5px;
+  background: none;
+  border: 0;
+  color: #345780;
+  min-height: 30px;
+  min-width: 30px;
+}
+.carousel-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #526b92;
+  margin-bottom: 12px;
+}
+.carousel-toolbar > div {
+  display: flex;
+  gap: 6px;
+}
+.carousel-toolbar button {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #a4bbdf;
+  background: white;
+  color: #2256a5;
+  border-radius: 9px;
+}
+.carousel-track {
+  display: flex !important;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 14px;
+  position: relative;
+  scrollbar-width: thin;
+  padding: 3px 0 12px;
+}
+.carousel-track > .course-card {
+  flex: 0 0 calc(50% - 7px);
+  scroll-snap-align: start;
+}
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin: 10px 0;
+}
+.carousel-dots button {
+  border: 0;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  position: relative;
+}
+.carousel-dots button:after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 6px;
+  background: #afc4e5;
+}
+.carousel-dots button[aria-pressed="true"]:after {
+  background: #1d60ed;
+}
+.academic-chart {
+  margin: 0;
+}
+.academic-chart select {
+  width: auto;
+  max-width: 180px;
+  font-size: 11px;
+  min-height: 38px;
+}
+.chart-bars {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 14px 0;
+}
+.chart-column {
+  min-width: 90px;
+  flex: 1;
+  text-align: center;
+}
+.chart-bar-area {
+  height: 135px;
+  position: relative;
+  border-bottom: 1px solid #cadbf1;
+}
+.chart-bar {
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  width: 60%;
+  height: 100%;
+  background: var(--tone);
+  border-radius: 7px 7px 0 0;
+  transform-origin: bottom;
+  transition: transform 200ms var(--ease-out);
+  opacity: 0.65;
+}
+.chart-bar-area strong {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  background: white;
+  padding: 3px 6px;
+  border-radius: 5px;
+  font-size: 12px;
+  color: #163660;
+}
+.chart-column > span {
+  display: block;
+  margin: 10px 0 6px;
+  font-size: 10px;
+  max-width: 15ch;
+  margin-inline: auto;
+}
+.chart-column small {
+  font-size: 9px;
+}
+.intro h1 {
+  font-weight: 650;
+}
+.feature-copy h2 {
+  font-weight: 650;
+}
+.course-card h3 {
+  font-size: 16px;
+}
+.course-card > p {
+  font-size: 12px;
+}
+.course-progress-label {
+  font-size: 11px;
+}
+.course-card footer {
+  font-size: 11px;
+}
+.grade-list-row strong {
+  font-size: 13px;
+}
+.grade-list-row p {
+  font-size: 11px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .carousel-toolbar button:hover {
+    background: #dceaff;
+    transform: translateY(-1px);
+  }
+  .course-card:hover {
+    transform: translateY(-2px);
+    transition:
+      transform 160ms var(--ease-out),
+      background-color 160ms ease;
+  }
+}
+@media (max-width: 760px) {
+  .topbar {
+    flex-wrap: wrap;
+    padding-bottom: 12px;
+  }
+  .campus-search {
+    order: 3;
+    min-width: 100%;
+    margin: 8px 0 0;
+  }
+  .carousel-track > .course-card {
+    flex-basis: 88%;
+  }
+  .academic-chart {
+    order: 6;
+  }
+  .academic-chart .section-heading {
+    align-items: start;
+    flex-wrap: wrap;
+  }
+  .chart-column {
+    min-width: 85px;
+  }
+  .carousel-toolbar {
+    font-size: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track {
+    scroll-behavior: auto;
+  }
+  .chart-bar,
+  .course-card,
+  .carousel-toolbar button {
+    transition: none !important;
+    transform: none;
+  }
+  .chart-bar {
+    transform: scaleY(1);
+  }
+}
+.carousel-track::after {
+  content: "";
+  flex: 0 0 calc(50% - 7px);
+}
+@media (max-width: 760px) {
+  .carousel-track::after {
+    flex-basis: 12%;
+  }
+}

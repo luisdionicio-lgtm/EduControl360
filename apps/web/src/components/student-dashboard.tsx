@@ -1,3 +1,5 @@
+import { CourseCarousel } from "./course-carousel";
+import { GradeChart } from "./grade-chart";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -148,8 +150,8 @@ export function StudentDashboard({
               Ver todos <ArrowRight size={16} />
             </Link>
           </div>
-          <div className="course-grid">
-            {enrollments.slice(0, 3).map((e, index) => {
+          <CourseCarousel count={enrollments.length}>
+            {enrollments.map((e, index) => {
               const Icon = icons[index % 3];
               return (
                 <Link
@@ -184,8 +186,15 @@ export function StudentDashboard({
                 </Link>
               );
             })}
-          </div>
+          </CourseCarousel>
         </section>
+        <GradeChart
+          items={allGrades.map((g) => ({
+            name: g.evaluation.name,
+            course: g.course,
+            score: Number(g.score),
+          }))}
+        />
         <section className="recent-grades">
           <div className="section-heading">
             <h2>Lo último en tus notas</h2>

@@ -180,3 +180,4 @@ Tres perfiles locales explícitos: estudiante Lucía Torres, docente Diego Mendo
 
 La demo activa utiliza un único grupo Compose propio; el grupo inicial está detenido y sus volúmenes conservados. Esto describe el entorno actual, no un token visual.
 El CTA textual naranja de la demo utiliza #ad4d08 sobre blanco para conservar contraste; los iconos mantienen el naranja vivo.
+Carruseles: desplazamiento horizontal scroll-snap con flechas e indicadores, interacción táctil nativa y movimiento reducido. Gráfico de barras con datos publicados, filtro por curso y texto de cada evaluación. Búsqueda de cursos/evaluaciones por institución activa. Tipografía de cursos y notas ampliada.

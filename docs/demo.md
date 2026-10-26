@@ -24,3 +24,4 @@ El test restaura la nota modificada y elimina el programa de prueba.
 ## Alcance
 Funciona el núcleo académico implementado. Google real, DNS institucional, finanzas, Workspace, Gemini, comunicaciones y módulos futuros permanecen pendientes según STATUS.md. Esta demo no representa las siete fases terminadas.
 Un solo grupo activo: se retiraron los contenedores del entorno inicial conservando sus volúmenes. Los cuatro servicios de demo siguen dentro del mismo grupo Compose.
+Actualización: carrusel de cursos con flechas, indicadores y swipe; búsqueda de cursos/evaluaciones matriculadas; gráfico de calificaciones publicadas con filtro por curso. Movimiento reducido y navegación táctil.

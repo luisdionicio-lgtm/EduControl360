@@ -48,6 +48,24 @@ const db = createDatabase(
     const { context: studentContext, page: student } = await openRole("Estudiante");
     await student.getByRole("heading", { name: /^Hola, Lucía/ }).waitFor();
     assert.equal(await student.locator(".course-card").count(), 3);
+    await student.getByRole("button", { name: "Curso siguiente", exact: true }).click();
+    await student.waitForFunction(() => document.querySelector(".carousel-track").scrollLeft > 20);
+    await student.getByRole("button", { name: "Ir al curso 1", exact: true }).click();
+    await student
+      .getByRole("combobox", { name: "Filtrar gráfico por curso" })
+      .selectOption({ label: "Diseño de interfaces" });
+    assert.equal(await student.locator(".chart-column").count(), 2);
+    await student.getByRole("combobox", { name: "Filtrar gráfico por curso" }).selectOption("");
+    await student.getByRole("searchbox").count();
+    await student
+      .getByRole("textbox", { name: "Buscar cursos y evaluaciones" })
+      .fill("Arquitectura");
+    await student.getByRole("button", { name: "Buscar", exact: true }).click();
+    await student
+      .getByRole("region", { name: "Resultados de búsqueda" })
+      .getByRole("link")
+      .waitFor();
+    await student.getByRole("button", { name: "Cerrar búsqueda" }).click();
     assert.equal(
       await student.evaluate(
         () =>
