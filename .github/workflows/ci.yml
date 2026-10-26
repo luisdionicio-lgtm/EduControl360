@@ -1,0 +1,32 @@
+name: Verify
+on: [push, pull_request]
+jobs:
+  foundations:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: educontrol
+          POSTGRES_PASSWORD: ci-only-password
+          POSTGRES_DB: educontrol360
+        ports: ['54329:5432']
+        options: --health-cmd "pg_isready -U educontrol" --health-interval 5s --health-retries 12
+      redis:
+        image: redis:7-alpine
+        ports: ['63799:6379']
+    env:
+      DATABASE_URL: postgresql://educontrol:ci-only-password@localhost:54329/educontrol360
+      REDIS_URL: redis://localhost:63799
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.20.0'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm db:generate
+      - run: pnpm db:migrate
+      - run: pnpm verify
+

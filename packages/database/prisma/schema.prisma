@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+}
+model User {
+  id String @id @default(uuid()) @db.Uuid
+  googleSub String @unique
+  email String @unique
+  name String
+  active Boolean @default(true)
+  memberships Membership[]
+  createdAt DateTime @default(now())
+}
+model Institution {
+  id String @id @default(uuid()) @db.Uuid
+  name String
+  slug String @unique
+  memberships Membership[]
+  programs Program[]
+  createdAt DateTime @default(now())
+}
+enum Role {
+  ADMIN
+  TEACHER
+  STUDENT
+}
+model Membership {
+  id String @id @default(uuid()) @db.Uuid
+  userId String @db.Uuid
+  institutionId String @db.Uuid
+  role Role
+  active Boolean @default(true)
+  user User @relation(fields: [userId], references: [id])
+  institution Institution @relation(fields: [institutionId], references: [id])
+  @@unique([userId, institutionId])
+  @@index([institutionId, role])
+}
+model Program {
+  id String @id @default(uuid()) @db.Uuid
+  institutionId String @db.Uuid
+  name String
+  institution Institution @relation(fields: [institutionId], references: [id])
+  courses Course[]
+  @@unique([institutionId, name])
+}
+model Course {
+  id String @id @default(uuid()) @db.Uuid
+  programId String @db.Uuid
+  name String
+  code String
+  credits Int
+  program Program @relation(fields: [programId], references: [id])
+  @@unique([programId, code])
+}
+

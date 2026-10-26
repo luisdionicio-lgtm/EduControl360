@@ -1,0 +1,1138 @@
+# EDUCONTROL 360 — PROMPT MAESTRO DEFINITIVO
+## SaaS educativo multiinstitucional de nueva generación
+### Arquitectura empresarial · Full Stack · Google Cloud · Docker · UI/UX Premium · Producción
+
+---
+
+# 1. IDENTIDAD Y MISIÓN
+
+Actúa como un equipo de ingeniería de software de primer nivel, integrado por un arquitecto de software principal, ingenieros senior de frontend y backend, diseñador UI/UX experto en productos SaaS, especialista en seguridad, arquitecto de bases de datos, ingeniero DevOps, especialista en inteligencia artificial y equipo QA.
+
+Tu misión es **construir EduControl 360 desde cero como una plataforma SaaS educativa real, escalable, segura, elegante, moderna y comercializable**.
+
+EduControl 360 permitirá gestionar desde una única plataforma:
+
+- Universidades públicas y privadas.
+- Institutos tecnológicos y superiores.
+- Colegios públicos y privados.
+- Academias preuniversitarias.
+- Academias de idiomas.
+- Centros de capacitación y formación.
+
+La plataforma será 100 % web, completamente responsive, con una experiencia excelente en computadoras, tablets y smartphones. No crear aplicaciones móviles nativas.
+
+**No quiero una plantilla administrativa convencional. Quiero un producto con identidad propia, experiencia excepcional, funcionalidades completas y arquitectura profesional.**
+
+No generar pantallas ficticias que aparenten funcionar. Toda funcionalidad implementada debe conectarse a su lógica de negocio, backend, permisos y base de datos.
+
+---
+
+# 2. ENTORNO DE DESARROLLO
+
+El proyecto se desarrollará utilizando:
+
+- macOS.
+- Visual Studio Code.
+- Codex como agente de programación.
+- Docker Desktop.
+- Terminal Zsh.
+- Git y GitHub.
+- Google Cloud Console.
+- PostgreSQL.
+- Navegador para pruebas responsive.
+
+Antes de comenzar, inspecciona el entorno local, verifica las herramientas disponibles y comprueba sus versiones.
+
+No asumas que una dependencia está instalada sin comprobarlo.
+
+Utiliza un monorepositorio profesional, documentado y preparado para trabajo colaborativo.
+
+---
+
+# 3. STACK TECNOLÓGICO PRINCIPAL
+
+## Frontend
+- Next.js, App Router y React.
+- TypeScript en modo estricto.
+- Tailwind CSS.
+- shadcn/ui.
+- Radix UI.
+- Motion.
+- TanStack Query.
+- TanStack Table.
+- React Hook Form.
+- Zod.
+- Recharts.
+- Lucide Icons.
+- Sonner para notificaciones.
+- Tipografías Geist y Plus Jakarta Sans.
+
+## Backend
+- NestJS.
+- TypeScript.
+- Arquitectura modular.
+- API REST.
+- OpenAPI/Swagger.
+- Validación de DTO.
+- Guards, interceptors y filtros.
+- Servicios desacoplados.
+- Procesamiento de tareas en segundo plano.
+
+## Persistencia
+- PostgreSQL.
+- Prisma ORM.
+- Redis para caché, colas y mecanismos que lo requieran.
+- Almacenamiento compatible con S3 para archivos.
+- Migraciones versionadas.
+- Transacciones.
+- Índices y restricciones de integridad.
+
+## Autenticación
+- Google Identity Services.
+- OAuth 2.0 y OpenID Connect.
+- Auth.js para autenticación web cuando resulte compatible con la arquitectura.
+- Integración segura con NestJS.
+- Sesiones seguras.
+- Roles y permisos por institución.
+- MFA para cuentas privilegiadas.
+
+## Infraestructura
+- Docker y Docker Compose.
+- GitHub Actions.
+- Variables de entorno.
+- Health checks.
+- Logs estructurados.
+- Monitoreo.
+- Backups.
+- Configuración de staging y producción.
+
+Selecciona versiones estables, mantenidas y compatibles. Consulta documentación oficial actualizada antes de instalar dependencias.
+
+---
+
+# 4. ESTRUCTURA DEL MONOREPOSITORIO
+
+Utiliza pnpm workspaces y Turborepo si la compatibilidad y complejidad del proyecto lo justifican.
+
+Estructura inicial recomendada:
+
+educontrol360/
+- apps/
+  - web/
+  - api/
+- packages/
+  - ui/
+  - database/
+  - shared/
+  - config/
+  - types/
+- infrastructure/
+  - docker/
+  - nginx/
+  - monitoring/
+- docs/
+  - architecture/
+  - api/
+  - security/
+  - deployment/
+  - design-system/
+- tests/
+  - e2e/
+  - integration/
+- scripts/
+- .github/
+  - workflows/
+- docker-compose.yml
+- docker-compose.prod.yml
+- .env.example
+- pnpm-workspace.yaml
+- turbo.json
+- README.md
+
+No crear carpetas vacías innecesarias. Cada carpeta debe tener una responsabilidad clara.
+
+Mantener convenciones coherentes de nombres, imports, módulos y componentes.
+
+---
+
+# 5. DISEÑO UI/UX — CALIDAD EXCEPCIONAL
+
+Este apartado es una prioridad absoluta.
+
+EduControl 360 debe destacar visualmente frente a los sistemas educativos tradicionales.
+
+Investiga referencias en:
+
+- https://dribbble.com
+- https://www.behance.net
+- https://www.awwwards.com
+- https://linear.app
+- https://vercel.com
+- https://raycast.com
+
+Buscar referencias relacionadas con:
+
+- Premium SaaS Dashboard.
+- Next Generation Admin Dashboard.
+- Modern Education Platform.
+- Enterprise Analytics.
+- University Management UI.
+- Modern Data Table.
+- Futuristic Web Application.
+- Advanced Profile Management.
+- Modern Learning Management System.
+
+Utiliza estas referencias para identificar patrones de calidad, sin copiar diseños propietarios.
+
+## Dirección visual
+
+El diseño debe ser:
+- Moderno.
+- Premium.
+- Innovador.
+- Sofisticado.
+- Elegante.
+- Profesional.
+- Dinámico.
+- Accesible.
+- Original.
+- Visualmente memorable.
+
+No crear el típico dashboard con sidebar azul, tarjetas blancas repetidas y botones rectangulares genéricos.
+
+Crear una identidad visual única para EduControl 360.
+
+## Tipografía
+
+Utilizar:
+- Geist para la interfaz principal.
+- Plus Jakarta Sans para títulos destacados.
+- Geist Mono para información técnica cuando corresponda.
+
+Definir escalas tipográficas, pesos, interlineados y espaciados consistentes.
+
+Priorizar legibilidad y jerarquía visual.
+
+## Paleta premium propuesta
+
+Base institucional:
+- Midnight Navy: #0B1020
+- Deep Slate: #151B32
+- Electric Indigo: #6258F7
+- Cobalt Blue: #3575F6
+- Cyan Accent: #16C7E8
+- Aurora Violet: #9466FF
+- Mint Green: #18C69A
+- Soft Coral: #FF6B82
+- Amber: #F5B94F
+
+Fondos:
+- Light Canvas: #F7F9FD
+- Surface: #FFFFFF
+- Soft Surface: #F0F4FA
+- Dark Canvas: #090D19
+
+No utilizar todos los colores indiscriminadamente.
+
+Crear tokens semánticos y controlar su uso mediante un Design System.
+
+Usar acentos llamativos de forma estratégica, conservando una apariencia institucional y profesional.
+
+## Botones
+
+Diseñar botones premium con:
+- Jerarquía clara.
+- Microinteracciones.
+- Estados hover y pressed.
+- Focus accesible.
+- Estados loading.
+- Iconografía refinada.
+- Transiciones suaves.
+- Variantes primary, secondary, ghost, destructive y contextual.
+
+Evitar gradientes fuertes en todas las acciones.
+
+## Tarjetas y superficies
+
+Utilizar:
+- Radios consistentes.
+- Bordes sutiles.
+- Sombras suaves.
+- Capas visuales.
+- Gradientes discretos.
+- Glassmorphism solo donde aporte valor.
+- Espaciado generoso.
+- Información bien jerarquizada.
+
+## Animaciones
+
+Implementar:
+- Transiciones entre páginas.
+- Apertura de menús.
+- Aparición de modales.
+- Hover de tarjetas.
+- Cambios de estado.
+- Feedback de formularios.
+- Animaciones de gráficos.
+- Skeleton loading.
+- Microinteracciones.
+
+Evitar animaciones excesivas que perjudiquen rendimiento o accesibilidad.
+
+Respetar prefers-reduced-motion.
+
+## Diseño responsive
+
+Crear experiencias específicas para:
+- Desktop.
+- Laptop.
+- Tablet.
+- Smartphone.
+
+No limitarse a reducir el tamaño de los componentes.
+
+Adaptar navegación, tablas, formularios, menús y dashboards a cada tamaño.
+
+Implementar sidebar colapsable, navegación móvil, tablas adaptativas y acciones accesibles.
+
+## Accesibilidad
+
+Objetivo WCAG 2.2 AA:
+- Navegación por teclado.
+- Contraste.
+- Focus visible.
+- Etiquetas.
+- Semántica.
+- Lectores de pantalla.
+- Tamaños táctiles adecuados.
+
+---
+
+# 6. ARQUITECTURA MULTI-TENANT
+
+EduControl 360 será una plataforma SaaS multiinstitucional.
+
+Cada institución debe tener datos, usuarios, configuración y operaciones independientes.
+
+Implementar:
+- Identificador único por institución.
+- Aislamiento de datos.
+- Membresías institucionales.
+- Roles específicos.
+- Dominios verificados.
+- Sedes.
+- Configuración académica.
+- Branding institucional.
+- Planes y suscripciones.
+- Auditoría.
+
+Un usuario puede pertenecer a varias instituciones y tener diferentes roles.
+
+Ejemplo:
+- Docente en una universidad.
+- Coordinador en un instituto.
+- Estudiante en una academia.
+
+Implementar selector de institución y cambio de contexto seguro.
+
+Nunca confiar en tenantId enviado desde el navegador sin verificar la autorización en backend.
+
+Diseñar defensa en profundidad y evaluar Row Level Security de PostgreSQL.
+
+Crear pruebas automatizadas de aislamiento entre instituciones.
+
+---
+
+# 7. GOOGLE CLOUD — AUTENTICACIÓN INSTITUCIONAL
+
+Integrar Google Identity Services mediante OAuth 2.0 y OpenID Connect.
+
+El sistema debe permitir iniciar sesión con Google de manera segura.
+
+## Configuración
+
+Utilizar credenciales propias creadas en Google Cloud Console.
+
+Variables esperadas:
+
+AUTH_GOOGLE_ID
+AUTH_GOOGLE_SECRET
+AUTH_SECRET
+AUTH_URL
+
+Nunca exponer secretos en el frontend ni subirlos al repositorio.
+
+Configurar:
+- Consentimiento OAuth.
+- Tipo de audiencia adecuado.
+- Orígenes autorizados.
+- Redirect URIs.
+- Scopes mínimos.
+- Cuentas de prueba.
+- Políticas de privacidad y términos.
+
+## Reconocimiento de correo institucional
+
+Cuando una persona ingrese su correo:
+
+1. Validar formato.
+2. Normalizar el dominio.
+3. Consultar el catálogo de dominios institucionales verificados.
+4. Identificar instituciones candidatas.
+5. Mostrar una institución sugerida cuando corresponda.
+6. Autenticar mediante Google o el método permitido.
+7. Validar la identidad en el servidor.
+8. Consultar membresías autorizadas.
+9. Determinar rol institucional.
+10. Abrir el dashboard correspondiente.
+
+Ejemplos ficticios:
+- estudiante@universidad-demo.edu.pe
+- profesor@instituto-demo.edu.pe
+- director@colegio-demo.edu.pe
+- alumno@academia-demo.com
+
+El dominio permite sugerir una institución, pero no autoriza acceso por sí solo.
+
+Exigir una membresía, invitación, matrícula o relación laboral verificada.
+
+No permitir que un usuario se convierta en administrador por registrarse con un dominio determinado.
+
+Para cuentas Google, verificar issuer, audience, firma, expiración y estado de verificación del correo.
+
+Utilizar el identificador estable sub del proveedor para vincular identidades.
+
+Gestionar casos de:
+- Dominios desconocidos.
+- Dominios compartidos.
+- Usuarios con varias instituciones.
+- Invitaciones pendientes.
+- Usuarios suspendidos.
+- Cambios de correo.
+- Cuentas duplicadas.
+- Intentos de acceso no autorizados.
+
+No afirmar que Google proporciona un registro universal de universidades o estudiantes.
+
+El catálogo institucional se construirá mediante registros, verificaciones y fuentes autorizadas.
+
+---
+
+# 8. GOOGLE WORKSPACE E INTEGRACIONES
+
+Investiga documentación oficial y SDK mantenidos para:
+
+## Google Classroom API
+- Vinculación de cursos.
+- Consulta de tareas.
+- Consulta de entregas.
+- Sincronización autorizada de información académica.
+- Gestión de conflictos.
+
+## Google Calendar API
+- Horarios.
+- Evaluaciones.
+- Eventos.
+- Reuniones.
+- Recordatorios.
+
+## Google Drive API
+- Materiales.
+- Archivos.
+- Documentos.
+- Permisos de acceso.
+
+## Google Meet
+- Reuniones y enlaces mediante API oficiales compatibles.
+
+## Gmail API
+- Comunicaciones autorizadas.
+- No utilizar cuentas personales para envío masivo no autorizado.
+
+## Gemini API
+- Asistente educativo.
+- Resumen de documentos.
+- Explicaciones académicas.
+- Borradores de reportes.
+- Recomendaciones con supervisión humana.
+
+Consultar documentación oficial:
+- https://developers.google.com
+- https://developers.google.com/workspace
+- https://developers.google.com/classroom
+- https://ai.google.dev
+
+Se permite investigar repositorios públicos para conocer patrones de integración.
+
+No copiar secretos, tokens, credenciales ni código incompatible con su licencia.
+
+Las integraciones deben manejar:
+- OAuth.
+- Scopes mínimos.
+- Consentimiento.
+- Expiración.
+- Renovación y revocación de tokens.
+- Cuotas.
+- Reintentos controlados.
+- Errores.
+- Logs.
+- Sincronización.
+- Desconexión.
+
+Si una API necesita credenciales o permisos que todavía no están disponibles, implementar adaptadores y pruebas con mocks, indicando claramente que falta la verificación real.
+
+---
+
+# 9. ROLES DEL SISTEMA
+
+Implementar roles globales e institucionales.
+
+## Global
+- Superadministrador.
+- Soporte autorizado.
+- Operador de plataforma.
+
+## Institucional
+- Administrador institucional.
+- Director.
+- Coordinador académico.
+- Secretaría.
+- Docente.
+- Estudiante.
+- Padre, madre o tutor autorizado.
+- Personal financiero.
+
+Implementar RBAC y permisos granulares.
+
+Un rol no debe acceder a información que no le corresponde.
+
+Todas las verificaciones importantes deben ejecutarse en backend.
+
+---
+
+# 10. MÓDULOS FUNCIONALES
+
+## 10.1 Superadministración
+
+Crear:
+- Dashboard global.
+- Gestión de instituciones.
+- Verificación institucional.
+- Gestión de suscripciones.
+- Gestión de planes.
+- Usuarios globales.
+- Auditoría.
+- Configuración.
+- Integraciones.
+- Monitoreo.
+- Soporte.
+- Reportes comerciales.
+
+## 10.2 Administración institucional
+
+Crear:
+- Dashboard institucional.
+- Perfil de institución.
+- Gestión de sedes.
+- Usuarios.
+- Docentes.
+- Estudiantes.
+- Programas.
+- Cursos.
+- Matrículas.
+- Horarios.
+- Notas.
+- Asistencia.
+- Finanzas.
+- Reportes.
+- Comunicados.
+- Configuración.
+
+## 10.3 Gestión académica
+
+Implementar:
+- Facultades.
+- Carreras.
+- Programas.
+- Grados.
+- Niveles.
+- Mallas curriculares.
+- Períodos.
+- Créditos.
+- Prerrequisitos.
+- Secciones.
+- Matrículas.
+- Historial académico.
+- Actas.
+- Promedios.
+- Escalas de calificación configurables.
+
+## 10.4 Portal docente
+
+Implementar:
+- Cursos asignados.
+- Estudiantes.
+- Evaluaciones.
+- Rúbricas.
+- Registro de notas.
+- Asistencia.
+- Tareas.
+- Materiales.
+- Comunicados.
+- Reportes.
+- Seguimiento académico.
+
+## 10.5 Portal estudiante
+
+Implementar:
+- Dashboard personalizado.
+- Cursos.
+- Notas.
+- Promedios.
+- Asistencia.
+- Horarios.
+- Evaluaciones.
+- Tareas.
+- Materiales.
+- Comunicados.
+- Pagos.
+- Historial.
+- Perfil.
+- Seguridad.
+
+## 10.6 Portal familiar
+
+Implementar:
+- Estudiantes vinculados.
+- Seguimiento autorizado.
+- Asistencia.
+- Notas.
+- Comunicados.
+- Pensiones.
+- Reuniones.
+- Notificaciones.
+
+Aplicar controles especiales de privacidad y representación legal.
+
+## 10.7 Asistencia inteligente
+
+Implementar:
+- Registro manual.
+- QR temporal.
+- Validación de sesión.
+- Expiración.
+- Prevención de reutilización.
+- Tardanzas.
+- Justificaciones.
+- Reportes.
+- Auditoría.
+
+## 10.8 Finanzas
+
+Implementar:
+- Matrículas.
+- Pensiones.
+- Conceptos de pago.
+- Descuentos.
+- Becas.
+- Estados de cuenta.
+- Historial.
+- Reportes.
+- Conciliación.
+- Adaptadores para pasarelas de pago.
+
+No simular pagos como si fueran transacciones reales.
+
+## 10.9 Comunicaciones
+
+Implementar:
+- Comunicados.
+- Notificaciones.
+- Mensajes institucionales.
+- Avisos por curso.
+- Plantillas.
+- Preferencias.
+- Historial.
+
+## 10.10 Analítica
+
+Implementar:
+- Rendimiento.
+- Asistencia.
+- Evolución de notas.
+- Indicadores.
+- Comparación de períodos.
+- Reportes.
+- Exportación.
+- Alertas académicas.
+
+---
+
+# 11. FUNCIONALIDADES DIFERENCIADORAS
+
+Agregar de manera progresiva:
+
+- Búsqueda global inteligente.
+- Command palette.
+- Acciones rápidas.
+- Tablas con filtros avanzados.
+- Vistas personalizadas.
+- Acciones masivas.
+- Importación CSV/Excel.
+- Exportación PDF/Excel.
+- Centro de notificaciones.
+- Calendario interactivo.
+- Dashboards configurables.
+- Onboarding institucional.
+- Centro de ayuda.
+- Historial de cambios.
+- Automatización de recordatorios.
+- Integraciones API.
+- Webhooks firmados.
+- Gestión avanzada de cuentas.
+
+Cada funcionalidad debe tener un propósito y comportamiento real.
+
+---
+
+# 12. GESTIÓN DE PERFILES Y CUENTAS
+
+Crear un centro de cuentas premium.
+
+Permitir:
+- Editar perfil.
+- Cambiar fotografía.
+- Gestionar información personal.
+- Consultar instituciones vinculadas.
+- Cambiar institución.
+- Gestionar preferencias.
+- Administrar sesiones.
+- Vincular Google.
+- Gestionar MFA.
+- Cambiar contraseña cuando aplique.
+- Revisar actividad.
+- Configurar notificaciones.
+- Cambiar tema.
+- Gestionar accesibilidad.
+
+Separar identidad global, perfil personal y membresías institucionales.
+
+---
+
+# 13. BASE DE DATOS
+
+Diseñar un modelo PostgreSQL completo con entidades para:
+
+- Usuarios.
+- Identidades externas.
+- Sesiones.
+- Instituciones.
+- Dominios institucionales.
+- Membresías.
+- Roles.
+- Permisos.
+- Sedes.
+- Programas.
+- Períodos.
+- Cursos.
+- Secciones.
+- Matrículas.
+- Evaluaciones.
+- Calificaciones.
+- Asistencias.
+- Horarios.
+- Tareas.
+- Materiales.
+- Comunicados.
+- Notificaciones.
+- Pagos.
+- Suscripciones.
+- Integraciones.
+- Auditoría.
+
+Implementar relaciones, índices, restricciones y migraciones.
+
+No almacenar información redundante sin justificación.
+
+Utilizar transacciones para operaciones críticas.
+
+---
+
+# 14. DOCKER — DESARROLLO PROFESIONAL
+
+Preparar Docker Compose para desarrollo local.
+
+Servicios iniciales:
+- PostgreSQL.
+- Redis.
+- Backend NestJS.
+- Frontend Next.js.
+- Almacenamiento de objetos local compatible con S3 cuando se necesite.
+
+Configurar:
+- Redes internas.
+- Volúmenes persistentes.
+- Health checks.
+- Variables de entorno.
+- Dependencias entre servicios.
+- Logs.
+- Reinicio controlado.
+- Hot reload de desarrollo.
+- Contenedores sin privilegios innecesarios.
+
+Crear Dockerfiles multi-stage.
+
+No incluir secretos en imágenes.
+
+Documentar comandos para:
+- Construir.
+- Iniciar.
+- Detener.
+- Reiniciar.
+- Ver logs.
+- Ejecutar migraciones.
+- Ejecutar seeds.
+- Ejecutar pruebas.
+
+El entorno debe funcionar correctamente en macOS con Docker Desktop.
+
+---
+
+# 15. SEGURIDAD Y PRIVACIDAD
+
+Implementar:
+- Autenticación segura.
+- Autorización por rol.
+- Aislamiento multi-tenant.
+- Validación de entrada.
+- Protección CSRF cuando corresponda.
+- Protección XSS.
+- Rate limiting.
+- Protección contra ataques de fuerza bruta.
+- MFA.
+- Gestión segura de sesiones.
+- Cifrado en tránsito.
+- Gestión de secretos.
+- Auditoría.
+- Backups.
+- Restauración.
+- Retención de datos.
+- Gestión de incidentes.
+
+Considerar la normativa peruana de protección de datos personales, incluidos los requisitos aplicables a información educativa y menores.
+
+No usar datos reales sin autorización.
+
+---
+
+# 16. PRUEBAS Y CONTROL DE CALIDAD
+
+Implementar:
+- Pruebas unitarias.
+- Pruebas de integración.
+- Pruebas de API.
+- Pruebas end-to-end con Playwright.
+- Pruebas responsive.
+- Pruebas de accesibilidad.
+- Pruebas de aislamiento institucional.
+- Pruebas de seguridad.
+- Pruebas de concurrencia.
+- Pruebas de migraciones.
+- Pruebas de integraciones mediante mocks.
+
+Escenarios prioritarios:
+
+1. Crear institución.
+2. Verificar dominio.
+3. Invitar administrador.
+4. Iniciar sesión con Google.
+5. Detectar institución candidata.
+6. Comprobar membresía.
+7. Cambiar institución.
+8. Crear programa.
+9. Crear curso.
+10. Matricular estudiante.
+11. Asignar docente.
+12. Registrar evaluación.
+13. Registrar nota.
+14. Calcular promedio.
+15. Publicar nota.
+16. Consultar nota desde cuenta estudiante.
+17. Registrar asistencia.
+18. Validar QR.
+19. Generar comunicado.
+20. Registrar pago de prueba.
+21. Generar reporte.
+22. Revocar sesión.
+23. Bloquear accesos no autorizados.
+24. Verificar aislamiento entre instituciones.
+25. Probar experiencia móvil.
+
+No declarar funcionalidades terminadas sin pruebas.
+
+---
+
+# 17. RENDIMIENTO Y ESCALABILIDAD
+
+Diseñar para crecer progresivamente.
+
+Implementar:
+- Paginación.
+- Caché donde corresponda.
+- Índices.
+- Consultas optimizadas.
+- Procesamiento asíncrono.
+- Compresión.
+- Carga diferida.
+- Optimización de imágenes.
+- Observabilidad.
+- Health checks.
+- Estrategias de backup.
+- Despliegues reproducibles.
+
+No introducir microservicios innecesariamente.
+
+Comenzar con un backend modular bien diseñado y separar servicios únicamente cuando exista una necesidad demostrable.
+
+Definir objetivos medibles de rendimiento y ejecutar pruebas de carga antes de prometer capacidad para miles de instituciones.
+
+---
+
+# 18. INTELIGENCIA ARTIFICIAL
+
+Diseñar un módulo de IA educativa integrable con Gemini.
+
+Funciones futuras:
+- Asistente académico.
+- Resumen de documentos.
+- Explicación de temas.
+- Borradores de reportes.
+- Recomendaciones de estudio.
+- Consultas contextuales autorizadas.
+
+Aplicar:
+- Control de acceso.
+- Protección de datos.
+- Límites de uso.
+- Registro de operaciones.
+- Protección contra prompt injection.
+- Supervisión humana.
+
+La IA no debe alterar calificaciones, pagos, matrículas ni permisos sin autorización explícita y controles del backend.
+
+---
+
+# 19. EXPERIENCIA DE PRODUCTO
+
+EduControl 360 debe sentirse como un SaaS comercial de alta calidad.
+
+Diseñar:
+- Landing page premium.
+- Login moderno.
+- Registro.
+- Selección institucional.
+- Onboarding.
+- Dashboards por rol.
+- Centro de cuentas.
+- Panel de configuración.
+- Estados de carga.
+- Estados vacíos.
+- Páginas de error.
+- Confirmaciones.
+- Notificaciones.
+- Ayuda contextual.
+
+Cada pantalla debe mantener coherencia visual y funcional.
+
+Evitar páginas inconexas, botones sin acción y módulos visualmente incompletos.
+
+---
+
+# 20. PLAN DE EJECUCIÓN
+
+Trabajar por fases verificables.
+
+## Fase 1 — Arquitectura y fundamentos
+- Repositorio.
+- Monorepo.
+- Docker.
+- PostgreSQL.
+- Prisma.
+- Next.js.
+- NestJS.
+- Design System.
+- CI inicial.
+
+## Fase 2 — Identidad y multi-tenancy
+- Google Login.
+- Sesiones.
+- Instituciones.
+- Dominios verificados.
+- Membresías.
+- Roles.
+- Permisos.
+- Selector institucional.
+
+## Fase 3 — Núcleo académico
+- Programas.
+- Cursos.
+- Matrículas.
+- Docentes.
+- Estudiantes.
+- Evaluaciones.
+- Notas.
+- Asistencia.
+- Horarios.
+
+## Fase 4 — Experiencia completa
+- Dashboards por rol.
+- Comunicaciones.
+- Materiales.
+- Portal familiar.
+- Reportes.
+- Gestión de cuentas.
+- Responsive premium.
+
+## Fase 5 — Integraciones
+- Classroom.
+- Calendar.
+- Drive.
+- Meet.
+- Notificaciones.
+- Sincronización.
+
+## Fase 6 — Plataforma comercial
+- Suscripciones.
+- Finanzas.
+- Soporte.
+- Auditoría.
+- Dominios personalizados.
+- Despliegue.
+
+## Fase 7 — Innovación
+- Gemini.
+- Analítica avanzada.
+- Automatizaciones.
+- Optimización.
+
+No comenzar todos los módulos simultáneamente.
+
+Completar flujos funcionales de extremo a extremo antes de ampliar el sistema.
+
+---
+
+# 21. REGLAS PARA CODEX
+
+Debes trabajar directamente sobre el repositorio en Visual Studio Code.
+
+Antes de modificar archivos:
+1. Inspecciona el proyecto.
+2. Revisa las tecnologías existentes.
+3. Identifica dependencias.
+4. Presenta un plan breve.
+5. Ejecuta la implementación.
+
+Durante el trabajo:
+- Escribe código mantenible.
+- Usa componentes reutilizables.
+- Mantén TypeScript estricto.
+- Evita duplicaciones.
+- Utiliza nombres descriptivos.
+- Documenta decisiones importantes.
+- Ejecuta pruebas.
+- Corrige errores.
+- Conserva funcionalidades existentes.
+- Mantén consistencia visual.
+- Evita dependencias innecesarias.
+
+No inventes resultados de ejecución.
+
+Si falta una credencial, acceso o permiso, documenta el bloqueo y continúa con tareas que sí puedan verificarse.
+
+Al finalizar cada fase entrega:
+- Resumen de implementación.
+- Archivos modificados.
+- Comandos utilizados.
+- Pruebas ejecutadas.
+- Resultados reales.
+- Problemas pendientes.
+- Próxima fase.
+
+---
+
+# 22. ENTREGABLES FINALES
+
+Entregar:
+- Código fuente organizado.
+- Frontend.
+- Backend.
+- Base de datos.
+- Migraciones.
+- Docker Compose.
+- Dockerfiles.
+- .env.example.
+- README profesional.
+- Documentación de arquitectura.
+- Documentación de API.
+- Guía Google Cloud.
+- Guía de instalación en macOS.
+- Manual de usuario.
+- Datos demo ficticios.
+- Pruebas automatizadas.
+- Checklist de seguridad.
+- Checklist de despliegue.
+- Reporte de funcionalidades.
+- Roadmap de mejoras.
+
+---
+
+# 23. PRIMERA IMPLEMENTACIÓN OBLIGATORIA
+
+Empieza construyendo un flujo real de extremo a extremo:
+
+**Crear institución → verificar dominio → invitar administrador → iniciar sesión con Google → validar membresía → abrir dashboard → crear programa → crear curso → registrar estudiante → matricular → asignar docente → registrar evaluación → publicar nota → consultar nota desde portal estudiante.**
+
+Este flujo debe utilizar PostgreSQL real, API real, permisos reales y pruebas automatizadas.
+
+El diseño debe ser premium desde el comienzo, no una interfaz provisional desordenada.
+
+Una vez validado, continúa con los demás módulos.
+
+---
+
+# 24. CRITERIO DE FINALIZACIÓN
+
+Una funcionalidad solo se considera terminada cuando:
+
+- Su interfaz está implementada.
+- Su backend funciona.
+- Los datos persisten.
+- Los permisos están validados.
+- Los errores están controlados.
+- Funciona en desktop y móvil.
+- Tiene pruebas adecuadas.
+- Está documentada.
+- No rompe módulos existentes.
+
+Distingue siempre entre:
+- Implementado y probado.
+- Implementado pendiente de verificación.
+- Simulado para desarrollo.
+- Pendiente.
+- Bloqueado por credenciales.
+
+No afirmar que el sistema está listo para producción sin una revisión de seguridad, rendimiento, privacidad y despliegue.
+
+---
+
+# INSTRUCCIÓN FINAL
+
+Construye EduControl 360 como una plataforma educativa SaaS de nueva generación.
+
+Quiero una experiencia visual memorable, con colores modernos y llamativos, tipografía impecable, animaciones elegantes, navegación intuitiva, componentes refinados y una arquitectura sólida.
+
+El sistema debe poder crecer desde una academia pequeña hasta instituciones educativas con múltiples sedes y miles de usuarios, siempre con seguridad, aislamiento y rendimiento comprobados.
+
+**Comienza ahora con la inspección del entorno, la arquitectura del monorepositorio, el Design System premium, Docker y el primer flujo funcional de autenticación institucional.**
+
+No te limites a explicar cómo hacerlo: implementa, ejecuta, verifica y documenta cada paso que el entorno permita realizar.
