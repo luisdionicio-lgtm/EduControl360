@@ -489,7 +489,11 @@ function DomainVerification({
     <div className="domain-row">
       <strong>{domain.domain}</strong>
       <p className={domain.verifiedAt ? "ok" : "muted"}>
-        {domain.verifiedAt ? "Verificado" : "Pendiente de verificación"}
+        {domain.challenge.startsWith("DEMO-ONLY")
+          ? "Precargado para la demo · No es una verificación DNS real"
+          : domain.verifiedAt
+            ? "Verificado"
+            : "Pendiente de verificación"}
       </p>
       {!domain.verifiedAt && (
         <>

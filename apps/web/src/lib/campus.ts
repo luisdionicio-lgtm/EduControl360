@@ -20,7 +20,8 @@ export interface StudentData {
       section: {
         id: string;
         name: string;
-        course: { name: string; code: string; credits: number };
+        course: { name: string; code: string; credits: number; program?: { name: string } };
+        teacher?: { name: string } | null;
         period: { name: string };
         schedules: {
           id: string;

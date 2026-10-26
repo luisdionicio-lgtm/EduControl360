@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "@fontsource-variable/geist";
-import "@fontsource-variable/plus-jakarta-sans";
+import "@fontsource-variable/sora";
 import "./globals.css";
 export const metadata: Metadata = {
   title: "EduControl 360 · Portal estudiante",

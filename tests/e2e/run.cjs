@@ -153,9 +153,9 @@ const { randomUUID } = require("node:crypto");
     const page = await desktop.newPage();
     page.on("pageerror", (error) => errors.push(error.message));
     await page.goto(base + "/campus?institution=" + institution.id);
-    await page.getByRole("heading", { name: "Tu aprendizaje, en un solo lugar." }).waitFor();
+    await page.getByRole("heading", { name: /^Hola, Lucía/ }).waitFor();
     await page.evaluate(() => document.fonts.ready);
-    assert.ok((await page.getByText("18.50", { exact: true }).count()) === 1);
+    await page.getByText("18.50", { exact: true }).first().waitFor();
     assert.equal(
       await page.evaluate(() => document.documentElement.scrollWidth > innerWidth),
       false,
@@ -183,7 +183,7 @@ const { randomUUID } = require("node:crypto");
     const mobile = await contextFor(student, 390, 844);
     const mobilePage = await mobile.newPage();
     await mobilePage.goto(base + "/campus?institution=" + institution.id);
-    await mobilePage.getByRole("heading", { name: "Tu aprendizaje, en un solo lugar." }).waitFor();
+    await mobilePage.getByRole("heading", { name: /^Hola, Lucía/ }).waitFor();
     await mobilePage.evaluate(() => document.fonts.ready);
     assert.equal(
       await mobilePage.evaluate(() => document.documentElement.scrollWidth > innerWidth),
@@ -219,7 +219,7 @@ const { randomUUID } = require("node:crypto");
     await adminPage.goto(base + "/campus");
     await adminPage.waitForURL(/\/login/);
     await adminPage.getByRole("heading", { name: "Bienvenido a tu campus" }).waitFor();
-    await page.getByRole("button", { name: "Cerrar sesión" }).click();
+    await page.locator(".rail").getByRole("button", { name: "Cerrar sesión" }).click();
     await page.waitForURL(/\/login/);
     const revoked = await db.authSession.findUnique({ where: { id: student.session.id } });
     assert.ok(revoked.revokedAt);

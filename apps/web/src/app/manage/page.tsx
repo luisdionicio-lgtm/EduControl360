@@ -1,3 +1,4 @@
+import { ManagementOverview } from "@/components/management-overview";
 import { redirect } from "next/navigation";
 import { CampusShell } from "@/components/campus-shell";
 import { Management, AcademicData, SettingsData } from "@/components/management";
@@ -32,6 +33,7 @@ export default async function Manage({
         </div>
         <span className="badge">{member.role === "ADMIN" ? "Administrador" : "Docente"}</span>
       </div>
+      <ManagementOverview data={data} role={member.role} />
       <Management
         institutionId={institutionId}
         role={member.role}

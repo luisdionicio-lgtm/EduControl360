@@ -1,6 +1,5 @@
 import Link from "next/link";
 import {
-  GraduationCap,
   LayoutDashboard,
   BookOpen,
   ChartNoAxesColumn,
@@ -8,8 +7,14 @@ import {
   ClipboardCheck,
   Settings2,
   UserRound,
+  ChevronRight,
+  Building2,
+  Sparkles,
+  PanelLeftClose,
 } from "lucide-react";
 import { Logout } from "./auth-buttons";
+import { Brand } from "./brand";
+import { isDemoEnabled } from "@/lib/demo";
 export interface Membership {
   institutionId: string;
   role: string;
@@ -32,83 +37,150 @@ export function CampusShell({
   institutionId?: string;
   children: React.ReactNode;
 }) {
-  const membership = me.memberships.find((m) => m.institutionId === institutionId);
+  const member = me.memberships.find((m) => m.institutionId === institutionId);
   const suffix = institutionId ? "?institution=" + institutionId : "";
-  const items = [
+  const demo = isDemoEnabled();
+  const studentItems = [
     ["Inicio", "/campus", LayoutDashboard],
     ["Mis cursos", "/campus/courses", BookOpen],
     ["Mis notas", "/campus/grades", ChartNoAxesColumn],
     ["Asistencia", "/campus/attendance", ClipboardCheck],
     ["Horario", "/campus/schedule", CalendarDays],
-    ["Mi cuenta", "/campus/account", UserRound],
   ] as const;
+  const items =
+    member && member.role !== "STUDENT"
+      ? ([["Gestión académica", "/manage", Settings2]] as const)
+      : studentItems;
+  const initials = me.name
+    .split(" ")
+    .slice(0, 2)
+    .map((n) => n[0])
+    .join("");
+  const role =
+    member?.role === "STUDENT"
+      ? "Estudiante"
+      : member?.role === "TEACHER"
+        ? "Docente"
+        : member
+          ? "Administradora / administrador"
+          : "Mi cuenta";
+  const navigation = (
+    <nav aria-label="Navegación principal">
+      {items.map(([label, href, Icon]) => (
+        <Link key={href} href={href + suffix} aria-current={active === href ? "page" : undefined}>
+          <Icon size={19} strokeWidth={1.7} />
+          <span>{label}</span>
+          {active === href && <span className="nav-active-dot" />}
+        </Link>
+      ))}
+      <div className="nav-separator" />
+      <Link
+        href={"/campus/account" + suffix}
+        aria-current={active === "/campus/account" ? "page" : undefined}
+      >
+        <UserRound size={19} />
+        <span>Mi cuenta</span>
+      </Link>
+      {demo && (
+        <Link href="/demo">
+          <Sparkles size={18} />
+          <span>Cambiar perfil demo</span>
+        </Link>
+      )}
+    </nav>
+  );
   return (
     <div className="shell">
       <aside className="rail">
-        <Link className="brand" href={"/campus" + suffix}>
-          <GraduationCap size={28} />
-          EduControl 360
-        </Link>
-        <div>{membership && <p className="institution">{membership.institution.name}</p>}</div>
-        <nav aria-label="Navegación principal">
-          {items.map(([label, href, Icon]) => (
-            <Link
-              key={href}
-              href={href + suffix}
-              aria-current={active === href ? "page" : undefined}
-            >
-              <Icon size={18} />
-              {label}
-            </Link>
-          ))}
-          {membership && membership.role !== "STUDENT" && (
-            <Link
-              href={"/manage" + suffix}
-              aria-current={active === "/manage" ? "page" : undefined}
-            >
-              <Settings2 size={18} />
-              Gestión académica
-            </Link>
-          )}
-        </nav>
+        <Brand href={(member?.role === "STUDENT" ? "/campus" : "/manage") + suffix} />
+        <div className="institution-box">
+          <span className="institution-icon">
+            <Building2 size={19} />
+          </span>
+          <div>
+            <strong>{member?.institution.name ?? "Tu espacio académico"}</strong>
+            <small>{member ? "Comunidad académica" : "Sin institución"}</small>
+          </div>
+        </div>
+        {navigation}
         <footer>
-          <small>Aprender. Conectar. Avanzar.</small>
+          <div className="rail-person">
+            <span className="avatar">{initials}</span>
+            <div>
+              <strong>{me.name}</strong>
+              <small>{role}</small>
+            </div>
+          </div>
+          <Logout />
         </footer>
       </aside>
       <main className="workspace" id="contenido">
         <header className="topbar">
-          <div>
-            <strong>{me.name}</strong>
-            <p className="muted">
-              {membership?.role === "STUDENT"
-                ? "Estudiante"
-                : membership?.role === "TEACHER"
-                  ? "Docente"
-                  : membership
-                    ? "Administrador"
-                    : "Mi espacio académico"}
-            </p>
+          <div className="breadcrumb">
+            <span>Mi campus</span>
+            <ChevronRight size={14} />
+            <strong>
+              {active === "/manage"
+                ? "Gestión académica"
+                : active === "/campus"
+                  ? "Resumen"
+                  : (studentItems.find((i) => i[1] === active)?.[0] ?? "Mi cuenta")}
+            </strong>
           </div>
-          <Logout />
+          <div className="topbar-right">
+            <time>
+              {new Date().toLocaleDateString("es-PE", {
+                weekday: "short",
+                day: "numeric",
+                month: "long",
+                timeZone: "America/Lima",
+              })}
+            </time>
+            <span className="avatar">{initials}</span>
+          </div>
         </header>
+        <details className="mobile-navigation">
+          <summary>
+            <Brand href="/campus" />
+            <span>
+              <PanelLeftClose size={21} />
+              Menú
+            </span>
+          </summary>
+          {navigation}
+          <Logout />
+        </details>
+        {demo && (
+          <div className="demo-banner">
+            <span className="live-dot" />
+            <strong>Demo local</strong>
+            <span>Datos ficticios · Cambios persistentes</span>
+            <Link href="/demo">
+              Cambiar perfil <ChevronRight size={14} />
+            </Link>
+          </div>
+        )}
         {me.memberships.length > 1 && (
           <form className="context-selector">
-            <label>
-              Institución
-              <select name="institution" defaultValue={institutionId}>
-                {me.memberships.map((m) => (
-                  <option value={m.institutionId} key={m.institutionId}>
-                    {m.institution.name}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <button className="button secondary" type="submit">
-              Cambiar institución
+            <Building2 size={16} />
+            <label htmlFor="institution-context">Institución</label>
+            <select id="institution-context" name="institution" defaultValue={institutionId}>
+              {me.memberships.map((m) => (
+                <option value={m.institutionId} key={m.institutionId}>
+                  {m.institution.name}
+                </option>
+              ))}
+            </select>
+            <button className="context-submit" type="submit">
+              Cambiar institución <ChevronRight size={14} />
             </button>
           </form>
         )}
         {children}
+        <footer className="workspace-footer">
+          <span>educontrol360</span>
+          <span>Tu próximo paso empieza aquí.</span>
+        </footer>
       </main>
     </div>
   );

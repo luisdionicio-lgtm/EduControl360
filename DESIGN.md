@@ -1,175 +1,177 @@
 ---
-name: Cuaderno académico — EduControl 360
-description: Portal académico de lectura clara, con navegación navy y acciones índigo.
+name: Campus Atelier — EduControl 360
+description: Portal académico principalmente oscuro, grafito, violeta y lima.
 colors:
-  canvas: "#f7f9fd"
-  surface: "#fff"
-  ink: "#151b32"
-  muted: "#59637a"
-  accent: "#4f46d5"
-  brand: "#6258f7"
-  line: "#dae0ec"
-  navy: "#0b1020"
-  success: "#087e65"
-  error: "#b42338"
-  soft-accent: "#eeedff"
-  soft-accent-ink: "#433aa5"
-  nav-active: "#302c60"
-  nav-hover: "#22243d"
-  button-hover: "#3f37b4"
-  secondary-hover: "#dedbff"
-  input-border: "#b7c0d3"
-  notice: "#fff5df"
-  notice-ink: "#78521a"
+  canvas: "#11131c"
+  surface: "#1b1e2a"
+  surface-raised: "#222635"
+  ink: "#f1f2f8"
+  muted: "#a4aabd"
+  accent: "#a99aff"
+  brand: "#a99aff"
+  lime: "#d4edb2"
+  line: "#303446"
+  navy: "#151721"
+  success: "#b7dfa0"
+  feature: "#b0a1f6"
+  feature-ink: "#241d3c"
+  date: "#d7ecb2"
+  date-ink: "#2d3b20"
+  button-ink: "#211a34"
+  button-hover: "#c1b5ff"
+  secondary: "#2b2a40"
+  secondary-ink: "#d6cbff"
+  secondary-hover: "#3b3655"
+  input: "#151824"
+  input-border: "#777d97"
+  error: "#ff9cac"
+  notice: "#3b3123"
+  notice-ink: "#e3c595"
+  nav-active: "#302b47"
+  nav-active-ink: "#dcd5ff"
+  nav-hover: "#242736"
 typography:
   headline:
-    fontFamily: '"Plus Jakarta Sans Variable", sans-serif'
-    fontSize: "clamp(28px, 3vw, 40px)"
-    fontWeight: 700
-    lineHeight: 1.25
+    fontFamily: '"Sora Variable", sans-serif'
+    fontSize: "clamp(28px, 2.6vw, 36px)"
+    fontWeight: 600
+    lineHeight: 1.35
     letterSpacing: "-0.03em"
   title:
-    fontFamily: '"Plus Jakarta Sans Variable", sans-serif'
-    fontSize: "22px"
-    fontWeight: 700
-    lineHeight: 1.25
+    fontFamily: '"Sora Variable", sans-serif'
+    fontSize: "18px"
+    fontWeight: 600
+    lineHeight: 1.35
     letterSpacing: "-0.03em"
   body:
     fontFamily: '"Geist Variable", sans-serif'
-    fontSize: "16px"
-  table:
-    fontFamily: '"Geist Variable", sans-serif'
-    fontSize: "14px"
+    fontSize: "15px"
+    lineHeight: 1.65
   label:
     fontFamily: '"Geist Variable", sans-serif'
-    fontSize: "14px"
-    fontWeight: 600
+    fontSize: "12px"
+    fontWeight: 500
 rounded:
-  panel: "12px"
-  control: "8px"
-  badge: "6px"
+  control: "10px"
+  date: "12px"
+  course: "14px"
+  panel: "16px"
 spacing:
-  xs: "8px"
-  sm: "12px"
-  md: "16px"
-  lg: "24px"
-  panel: "28px"
-  xl: "32px"
-  workspace: "48px"
+  control: "12px 18px"
+  panel: "26px"
+  feature: "28px"
+  workspace: "0 36px 24px"
 components:
   button-primary:
     backgroundColor: "{colors.accent}"
-    textColor: "{colors.surface}"
+    textColor: "{colors.button-ink}"
     rounded: "{rounded.control}"
-    padding: "12px 20px"
+    padding: "{spacing.control}"
   button-primary-hover:
     backgroundColor: "{colors.button-hover}"
   button-secondary:
-    backgroundColor: "{colors.soft-accent}"
-    textColor: "{colors.soft-accent-ink}"
+    backgroundColor: "{colors.secondary}"
+    textColor: "{colors.secondary-ink}"
     rounded: "{rounded.control}"
-    padding: "12px 20px"
-  button-secondary-hover:
-    backgroundColor: "{colors.secondary-hover}"
-    textColor: "{colors.soft-accent-ink}"
   panel:
     backgroundColor: "{colors.surface}"
+    textColor: "{colors.ink}"
     rounded: "{rounded.panel}"
-    padding: "28px"
-  badge:
-    backgroundColor: "{colors.soft-accent}"
-    textColor: "{colors.soft-accent-ink}"
-    rounded: "{rounded.badge}"
-    padding: "6px 10px"
+    padding: "{spacing.panel}"
+  input:
+    backgroundColor: "{colors.input}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.control}"
+    padding: "12px 14px"
 ---
 
-# Design System: Cuaderno académico
+# Design System: Campus Atelier
 
 ## Overview
 
-**Creative North Star: "Cuaderno académico"**
+**Creative North Star: Campus Atelier nocturno.** Un espacio académico de grafito con orientación violeta, fechas lima y lectura clara. Esta dirección principalmente oscura, confirmada por el usuario, sustituye Cuaderno académico. La referencia implementada es `apps/web/src/app/globals.css` y los componentes actuales; este documento describe su estado, no una propuesta futura.
 
-Dirección confirmada por el usuario para EduControl 360. La interfaz web prioriza al estudiante que consulta cursos y calificaciones desde una laptop o un teléfono. La navegación institucional oscura enmarca superficies claras y registros académicos alineados.
-
-La expresión es institucional y legible. Los estados y los datos publicados tienen prioridad sobre la decoración. El entorno de desarrollo es Windows; el producto es una aplicación web responsive.
+El estudiante encuentra institución, cursos, notas y agenda. La voz es española, institucional y directa; docentes y administradores conservan sus operaciones por membresía. La identidad se construye con tipografía y superficies sólidas, sin halos neón ni imágenes decorativas.
 
 **Key Characteristics:**
-- Navegación navy y acciones índigo.
-- Datos académicos alineados, con cifras tabulares.
-- Contexto institucional persistente y estados escritos.
-- Lectura móvil mediante filas apiladas y etiquetadas.
+
+- Grafito por defecto, violeta para orientación y acción, lima para fecha y avance.
+- Sora en títulos, Geist en lectura, iconos Lucide.
+- Datos reales en el producto; demo explícita con datos ficticios persistentes.
 
 ## Colors
 
+Los valores normativos están en el frontmatter. Los nombres `canvas`, `surface`, `surface-raised`, `ink`, `muted`, `accent`, `brand`, `lime`, `line`, `navy` y `success` corresponden a propiedades CSS existentes.
+
 ### Primary
 
-El índigo de acción (`accent`) identifica botones y enlaces. El índigo de marca (`brand`) identifica iconos y el foco de teclado. La selección de navegación usa `nav-active`; el paso del puntero usa `nav-hover`.
+Violeta `accent` identifica enlaces, foco y botones. El gran panel de orientación usa `feature`, con tinta oscura `feature-ink`; no intercambiarlo automáticamente con `accent`.
+
+### Secondary
+
+Lima `lime` resalta selección de texto y elementos de avance; el bloque de fecha utiliza su propio color observado `date`. Los cursos tienen tonos locales definidos por `--tone`; no representan por sí solos un estado semántico.
 
 ### Neutral
 
-`canvas` es el fondo de la aplicación; `surface`, el de paneles y campos. `ink` sostiene la lectura y `muted` la información secundaria. `line` separa filas y delimita paneles. `navy` define la navegación y el relato de acceso.
-
-### Semantic states
-
-`success` identifica confirmaciones visuales; `error`, errores de formulario. Los avisos de prerrequisitos usan `notice` y `notice-ink`. La selección de gestión, los botones secundarios y los códigos de estudiante usan `soft-accent` y `soft-accent-ink`. Los estados mantienen texto: el color no sustituye su significado.
+`canvas` sostiene la página; `navy` el rail; `surface` y `surface-raised` separan contenidos mediante tono y líneas. Texto principal `ink` y secundario `muted`. Error rosado, éxito verde y avisos ámbar llevan texto explicativo, sin depender solo del color.
 
 ## Typography
 
-**Body Font:** Geist Variable, con sans-serif de respaldo.
-**Heading Font:** Plus Jakarta Sans Variable, con sans-serif de respaldo.
+**Display Font:** Sora Variable, sans-serif. **Body Font:** Geist Variable, sans-serif. No hay una tercera familia mono.
 
-Las fuentes se importan localmente mediante los paquetes `@fontsource-variable` en el layout raíz. No se usa una fuente monoespaciada para notas: las tablas activan cifras tabulares con `font-variant-numeric`.
-
-El título principal usa el tamaño fluido del frontmatter; los títulos secundarios usan 22px y los de tercer nivel 17px, todos con interlineado 1.25 y tracking -0.03em. El cuerpo hereda 16px del navegador; los párrafos usan interlineado 1.65 y ancho máximo 70ch. Las tablas usan 14px, sus encabezados 12px y las notas 20px/700. Etiquetas de formulario: 14px/600; insignias: 12px/650.
+H1 usa el tamaño fluido del frontmatter; H2 18px y H3 15px, peso 600, con ajustes locales. Los títulos de cursos usan 550 y 14px en escritorio. El panel violeta usa `clamp(23px, 2.1vw, 29px)` y tracking -0.04em. La portada demo usa `clamp(36px, 4vw, 56px)` y peso 550. Los párrafos generales tienen máximo 70ch; las descripciones y metadatos son más compactos. El tamaño base 15px no sustituye los tamaños locales de 8–13px que existen en el dashboard; su legibilidad requiere revisión visual y no equivale a una certificación de accesibilidad.
 
 ## Layout
 
-En escritorio, el shell tiene un rail de 244px y contenido flexible con mínimo cero; ocupa al menos 100dvh. El rail usa padding 32px 20px. El área principal usa 48px laterales e inferiores; el encabezado tiene mínimo 88px de alto y separación inferior de 40px. Los paneles tienen padding 28px y margen superior 24px. La gestión organiza dos columnas iguales; el patrón de dos columnas del sistema usa proporción 1.6:1. Los formularios tienen un ancho máximo de 620px.
+Shell de dos columnas: rail sticky de 238px y contenido flexible, altura mínima 100dvh. Workspace con 36px laterales. Dashboard con columna principal y lateral de 288px, gap 24px. Cursos, métricas y agenda forman grupos distintos; no convertir todo el contenido en tablas.
 
-Hasta 1000px el rail pasa a 210px, el contenido a 28px laterales y 32px inferiores, y ambas rejillas pasan a una columna.
+- Desde 1600px: workspace 46px laterales y lateral de dashboard 315px.
+- Hasta 1220px: rail 218px, workspace 27px; dashboard de una columna y paneles laterales en dos columnas.
+- Hasta 900px: rail 198px, workspace 22px; cursos y rejillas de gestión/detalle pasan a una columna.
+- Hasta 760px: rail oculto y menú nativo `details/summary`; workspace 20px. Dashboard ordenado: orientación, métricas, cursos, agenda, rendimiento, notas recientes y próximas evaluaciones. Login, perfiles demo y explicaciones pasan a una columna.
+- Hasta 420px: panel de orientación vertical, fecha horizontal; se oculta la fecha secundaria de la lista de notas.
 
-Hasta 700px el shell se convierte en bloque. El rail funciona como encabezado superior con padding 20px; sus enlaces forman una fila horizontal desplazable sin partir sus textos. Se oculta el pie del rail. El contenido usa 20px laterales y 32px inferiores, el encabezado mide al menos 72px y los paneles tienen padding 20px. La introducción se apila y el selector institucional puede ocupar otra línea.
-
-Las tablas son completas en escritorio, dentro de regiones con nombre y foco de teclado. En móvil su contenedor deja de desplazar horizontalmente: cada fila se vuelve una rejilla de dos columnas con gap 16px y padding vertical 20px; la primera celda ocupa ambas columnas. Los encabezados se ocultan visualmente y cada celda muestra su `data-label`. Los textos largos pueden partirse. No describir este patrón como una tabla móvil que requiere desplazamiento lateral.
+Tablas en escritorio permiten desplazamiento horizontal. Hasta 760px, cada fila se transforma en una rejilla de dos columnas con primera celda de ancho completo y etiquetas `data-label`; el encabezado permanece visualmente oculto. Mantener estas etiquetas al añadir columnas.
 
 ## Elevation & Depth
 
-El sistema implementado es plano: no define sombras. El fondo claro, los paneles blancos, los bordes y los divisores crean jerarquía; el rail navy establece el límite espacial principal.
+Profundidad por contraste tonal, bordes y separación; la hoja global no define sombras. Las tarjetas de curso se elevan 3px al hover; los perfiles demo 4px. Botones desplazan 1px al pulsar. Transiciones habituales de 160ms, perfiles de 180ms; desplazamientos con `cubic-bezier(0.16, 1, 0.3, 1)` y color con `ease-out`. El spinner gira en 900ms. `prefers-reduced-motion: reduce` elimina animaciones y transiciones y restaura scroll automático.
 
 ## Shapes
 
-Los paneles usan curvas de 12px; botones, campos, enlaces del rail y selectores de gestión, 8px; insignias, 6px. Los paneles y campos tienen borde de 1px. Los controles principales tienen altura mínima de 44px. El checkbox visible mide 22px; su campo usa una rejilla de 22px y una columna flexible, con etiqueta asociada activable de al menos 44px de alto.
+Paneles y orientación de 16px; cursos de 14px; fecha de 12px; botones, campos y enlaces de navegación de 10px. Avatares circulares, indicadores pequeños redondos y barras de progreso de 4px. Bordes de 1px dividen superficies sin añadir sombras.
 
 ## Components
 
-### Buttons and fields
+### Buttons
 
-El botón principal usa índigo de acción, texto blanco, peso 600 y padding 12px 20px. En hover cambia a `button-hover`. El secundario usa el par índigo claro; en hover cambia a `secondary-hover` y conserva el texto `soft-accent-ink`. El estado deshabilitado usa opacidad .55 y cursor de prohibición. Los campos tienen padding 12px, borde `input-border`, fondo blanco y etiqueta asociada explícitamente en los formularios de gestión.
+Acción principal violeta con tinta oscura, mínimo 44px, padding 12px 18px y texto 12px/600. Hover más claro; variante secundaria oscura y variante `dark-button` de 38px dentro del panel violeta. Disabled usa opacidad 0.5 y cursor no permitido. Foco visible global de 3px en `accent`, separado 4px. No afirmar que todos los controles alcanzan 44px: existen variantes compactas.
 
-El foco visible global tiene contorno de 3px en índigo de marca y offset 4px. El enlace «Saltar al contenido» aparece al recibir foco y apunta al main. Los botones y enlaces usan `touch-action: manipulation`.
+### Cards / Containers
+
+Panel general de 26px de padding, 21px en móvil. Curso enlazable con borde, padding 18px 16px y progreso de evaluaciones publicadas. Los porcentajes y promedios derivan de datos académicos; no sustituir valores ausentes por resultados inventados. La fecha lima pertenece a la próxima clase; sin próxima clase se muestra un icono y mensaje alternativo.
+
+### Inputs / Fields
+
+Campos oscuros, borde `input-border`, mínimo 46px y radio 10px. Foco cambia borde a `accent` y mantiene outline. Checkbox de 21px con etiqueta activable de mínimo 44px. Estados de error, aviso y vacío son texto contextual. Los campos conservan 13px incluso en móvil; no se documenta prevención universal del zoom en iOS.
 
 ### Navigation
 
-La navegación principal es un `nav` con nombre y enlaces reales; la ruta activa usa `aria-current="page"`. Conserva el contexto de institución en sus destinos. La gestión usa otro `nav` con nombre y botones `aria-pressed` para cambiar contenido local: no implementa el patrón ARIA tablist ni navegación con flechas propia de tabs. En móvil ambas filas pueden desplazarse horizontalmente.
+Enlaces con icono y texto; activo vía `aria-current="page"`, fondo violeta oscuro e indicador. Hover grafito más claro. Menú móvil nativo desplegable, con enlaces en dos columnas. Institución y rol determinan navegación y permisos; conservar el contexto de institución en rutas.
 
-### Academic records
+### Agenda
 
-Los cursos, notas, asistencia y horario usan tablas con regiones nombradas y `tabIndex=0`. Las notas muestran dos decimales, escala sobre 20 y fecha de publicación; la vista indica que solo muestra calificaciones publicadas. El diseño móvil conserva etiquetas visibles en cada dato.
+Selector semanal de botones con `aria-pressed`, marcas de días con clases y resultados en región `aria-live="polite"`. Estado vacío explícito para días sin clases. Fechas presentadas en español de Perú y zona America/Lima.
 
-### Feedback
+### Demo y autenticación
 
-La carga del campus usa `role="status"`. Los formularios de gestión muestran «Guardando…» y bloquean el envío durante la petición; los errores usan `role="alert"` y las confirmaciones `role="status"`. La falta de opciones previas muestra un aviso escrito y bloquea el envío. La verificación de dominio usa texto de estado. Las vistas académicas incluyen mensajes separados para ausencia de matrícula, notas, asistencia u horarios. Esta documentación no atribuye a estos componentes un error global recuperable o una pantalla propia de acceso prohibido que no se haya verificado.
-
-La única transición declarada es el color de fondo de botones (160ms, ease-out). `prefers-reduced-motion: reduce` elimina transiciones y animaciones y restablece el desplazamiento automático en todos los elementos y pseudoelementos.
+Tres perfiles locales explícitos: estudiante Lucía Torres, docente Diego Mendoza y administradora Valeria Ríos. Al entrar, todos los perfiles se deshabilitan; el elegido muestra spinner y «Abriendo tu espacio…». Error mediante `role="alert"`. El shell demo muestra «Demo local» y «Datos ficticios · Cambios persistentes», con cambio de perfil. Es un proveedor distinto de Google; los secretos y datos demo permanecen separados. No presentar credenciales Google pendientes ni módulos futuros como disponibles.
 
 ## Do's and Don'ts
 
-### Do:
-- **Do** conservar los nombres de estado, las etiquetas de campo y el contexto institucional.
-- **Do** usar cifras tabulares y etiquetas por celda en los registros móviles.
-- **Do** respetar el foco visible y la preferencia de movimiento reducido.
-
-### Don't:
-- **Don't** presentar datos inventados como información académica real.
-- **Don't** llamar tabs ARIA a los botones de gestión con `aria-pressed`.
-- **Don't** sustituir las fuentes confirmadas por una tipografía distinta.
+- **Do** reutilizar los tokens oscuros y los tamaños locales antes de añadir variantes.
+- **Do** mantener estados vacíos, pendientes, error y contexto de institución.
+- **Do** preservar foco, teclado, texto de estados y movimiento reducido. WCAG 2.2 AA es un objetivo, no un resultado certificado por este documento.
+- **Don't** reintroducir la paleta clara Cuaderno ni Plus Jakarta Sans.
+- **Don't** añadir halos neón, sombras arbitrarias ni imágenes sin procedencia.
+- **Don't** confundir datos ficticios persistentes con producción o autenticación Google.

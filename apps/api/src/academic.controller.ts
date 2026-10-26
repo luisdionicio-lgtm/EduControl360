@@ -53,7 +53,8 @@ export class AcademicController {
           include: {
             section: {
               include: {
-                course: true,
+                course: { include: { program: { select: { name: true } } } },
+                teacher: { select: { name: true } },
                 period: true,
                 schedules: true,
                 evaluations: { select: { id: true, name: true, weight: true, dueAt: true } },

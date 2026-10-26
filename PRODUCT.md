@@ -11,7 +11,6 @@ Gestión educativa multiinstitucional con flujos reales, permisos por membresía
 ## Capabilities and Constraints
 No simular funcionalidades como si estuvieran terminadas. Fases verificables. Sin aplicaciones nativas. Credenciales propias de Google pendientes. Publicación al repositorio luisdionicio-lgtm/EduControl360 al finalizar.
 ## Brand Commitments
-Nombre EduControl 360. Índigo, navy y superficies claras del prompt. Geist y Plus Jakarta Sans. Voz española, clara e institucional.
+Nombre EduControl 360. Actualización confirmada por el usuario: interfaz principalmente oscura, grafito y violeta con acentos lima; títulos Sora y lectura Geist. Identidad Campus Atelier, moderna y distintiva. Voz española, clara e institucional. Demo local con perfiles explícitos y datos ficticios, separada de Google y de los datos normales.
 ## Accessibility & Inclusion
 Responsive y objetivo WCAG 2.2 AA. Respeto a movimiento reducido y navegación por teclado.
-

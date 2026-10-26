@@ -1,140 +1,143 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-26T20:35:26.2412965Z",
-  "title": "Design System: Cuaderno académico",
+  "generatedAt": "2026-10-26T21:02:50.8199001Z",
+  "title": "Design System: Campus Atelier",
   "extensions": {
-    "accessibility": {
-      "focus": "3px solid var(--brand), offset 4px",
-      "mainNavigation": "Named nav; links with aria-current=page",
-      "checkbox": "Visible checkbox 22px; associated activatable label min-height 44px; field grid 22px 1fr.",
-      "tables": "Named focusable regions; mobile cells display data-label",
-      "managementNavigation": "Named nav; buttons with aria-pressed, not tablist"
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Violeta de orientación"
+      },
+      "lime": {
+        "role": "secondary",
+        "displayName": "Lima de avance"
+      },
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Grafito nocturno"
+      }
     },
     "typographyMeta": {
       "headline": {
-        "displayName": "Título principal",
-        "purpose": "Títulos de campus; Plus Jakarta Sans Variable."
+        "displayName": "Títulos Sora",
+        "purpose": "Jerarquía académica y orientación."
       },
       "body": {
-        "displayName": "Lectura de interfaz",
-        "purpose": "Geist Variable; tablas con cifras tabulares."
+        "displayName": "Lectura Geist",
+        "purpose": "Interfaz, tablas y formularios."
       }
     },
-    "breakpoints": [
-      {
-        "purpose": "Rail de 210px, rejillas de una columna.",
-        "name": "compact-desktop",
-        "value": "1000px"
-      },
-      {
-        "purpose": "Rail superior, navegación horizontal y tablas apiladas etiquetadas.",
-        "name": "mobile",
-        "value": "700px"
-      }
-    ],
+    "shadows": [],
     "motion": [
       {
-        "purpose": "Cambio de fondo de botones.",
-        "name": "button-background",
-        "value": "background-color 160ms ease-out"
+        "name": "state",
+        "value": "160ms ease-out",
+        "purpose": "Color de botones, navegación y cursos."
       },
       {
-        "purpose": "Todos los elementos y pseudoelementos con prefers-reduced-motion:reduce.",
-        "name": "reduced-motion",
-        "value": "transition:none!important;animation:none!important;scroll-behavior:auto!important"
+        "name": "movement",
+        "value": "160ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Curso hover -3px, botón active +1px."
+      },
+      {
+        "name": "profile",
+        "value": "180ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Perfil demo hover -4px."
+      },
+      {
+        "name": "spinner",
+        "value": "900ms linear infinite",
+        "purpose": "Carga del perfil; movimiento reducido desactiva animaciones y transiciones."
       }
     ],
-    "shadows": [],
-    "colorMeta": {
-      "success": {
-        "displayName": "Confirmación menta",
-        "role": "semantic"
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1600px",
+        "purpose": "min-width: lateral 315px y workspace 46px."
       },
-      "canvas": {
-        "displayName": "Papel claro",
-        "role": "neutral"
+      {
+        "name": "compact-desktop",
+        "value": "1220px",
+        "purpose": "max-width: dashboard una columna, rail 218px."
       },
-      "navy": {
-        "displayName": "Navy institucional",
-        "role": "neutral"
+      {
+        "name": "tablet",
+        "value": "900px",
+        "purpose": "max-width: rail 198px, cursos una columna."
       },
-      "accent": {
-        "displayName": "Índigo de acción",
-        "role": "primary"
+      {
+        "name": "mobile",
+        "value": "760px",
+        "purpose": "max-width: menú details, tablas etiquetadas y login en una columna."
       },
-      "brand": {
-        "displayName": "Índigo de marca",
-        "role": "primary"
+      {
+        "name": "narrow",
+        "value": "420px",
+        "purpose": "max-width: orientación vertical y fecha horizontal."
       }
+    ],
+    "accessibility": {
+      "focus": "3px solid var(--accent), offset 4px",
+      "navigation": "aria-current=page; menú móvil nativo details/summary.",
+      "agenda": "Botones aria-pressed y resultados aria-live=polite.",
+      "tables": "Móvil usa data-label; conservar etiquetas por celda.",
+      "limitations": "WCAG 2.2 AA es objetivo. Metadatos de 8–13px y controles compactos existen; no se afirma cumplimiento universal ni prevención de zoom iOS."
+    },
+    "demoStates": {
+      "idle": "Tres perfiles explícitos, datos ficticios persistentes, proveedor demo independiente de Google.",
+      "pending": "Todos los perfiles disabled; seleccionado muestra Abriendo tu espacio… y spinner.",
+      "error": "Mensaje contextual con role=alert.",
+      "empty": "Agenda sin clases, ausencia de próxima clase y datos académicos faltantes tienen alternativas textuales."
     }
   },
   "components": [
     {
-      "description": "Acción con hover, foco y bloqueo de envío.",
+      "name": "Acción principal",
+      "kind": "button",
       "refersTo": "button-primary",
-      "name": "Botón principal",
-      "css": ".ds-primary{font:600 16px \"Geist Variable\",sans-serif;min-height:44px;padding:12px 20px;background:var(--accent,#4f46d5);color:#fff;border:0;border-radius:8px;cursor:pointer;transition:background-color 160ms ease-out}.ds-primary:hover{background:#3f37b4}.ds-primary:disabled{opacity:.55;cursor:not-allowed}.ds-primary:focus-visible{outline:3px solid var(--brand,#6258f7);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none!important}}",
-      "kind": "button",
-      "html": "<button class=\"ds-primary\">Guardar calificación</button>"
+      "description": "Botón violeta de acción, foco y estado pulsado.",
+      "html": "<button class=\"atelier-button\">Guardar cambios</button>",
+      "css": ".atelier-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:12px 18px;border:0;border-radius:10px;background:var(--accent,#a99aff);color:#211a34;font:600 12px 'Geist Variable',sans-serif;cursor:pointer;transition:background-color 160ms ease-out,transform 160ms cubic-bezier(0.16,1,0.3,1)}.atelier-button:hover{background:#c1b5ff}.atelier-button:focus-visible{outline:3px solid var(--accent,#a99aff);outline-offset:4px}.atelier-button:active{transform:translateY(1px)}.atelier-button:disabled{opacity:.5;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.atelier-button{transition:none}}"
     },
     {
-      "description": "Acción secundaria; hover índigo claro con texto oscuro conservado.",
-      "refersTo": "button-secondary",
-      "name": "Botón secundario",
-      "css": ".ds-secondary{font:600 16px \"Geist Variable\",sans-serif;min-height:44px;padding:12px 20px;background:#eeedff;color:#433aa5;border:0;border-radius:8px;cursor:pointer;transition:background-color 160ms ease-out}.ds-secondary:hover{background:#dedbff;color:#433aa5}.ds-secondary:disabled{opacity:.55;cursor:not-allowed}.ds-secondary:focus-visible{outline:3px solid var(--brand,#6258f7);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-secondary{transition:none!important}}",
-      "kind": "button",
-      "html": "<button class=\"ds-secondary\">Cambiar institución</button>"
-    },
-    {
-      "css": ".ds-label{display:grid;gap:8px;margin-bottom:8px;font:600 14px \"Geist Variable\",sans-serif}.ds-input{font:16px \"Geist Variable\",sans-serif;width:100%;min-height:44px;padding:12px;border:1px solid #b7c0d3;border-radius:8px;background:#fff;color:var(--ink,#151b32);caret-color:var(--brand,#6258f7)}.ds-input::placeholder{color:#626b7e}.ds-input:focus-visible{outline:3px solid var(--brand,#6258f7);outline-offset:4px}",
+      "name": "Campo académico",
       "kind": "input",
-      "name": "Campo de formulario",
-      "description": "Etiqueta asociada y altura mínima de 44px.",
-      "html": "<label class=\"ds-label\" for=\"ds-name\">Nombre del curso</label><input class=\"ds-input\" id=\"ds-name\" placeholder=\"Nombre del curso\">"
-    },
-    {
-      "css": ".ds-nav{display:grid;gap:8px;padding:20px;background:var(--navy,#0b1020);font:16px \"Geist Variable\",sans-serif}.ds-nav a{display:flex;align-items:center;min-height:44px;padding:12px;color:#c9cde0;text-decoration:none;border-radius:8px}.ds-nav a[aria-current=page]{background:#302c60;color:#fff}.ds-nav a:hover{background:#22243d}.ds-nav a:focus-visible{outline:3px solid var(--brand,#6258f7);outline-offset:4px}@media(max-width:700px){.ds-nav{display:flex;overflow-x:auto}.ds-nav a{white-space:nowrap}}",
-      "kind": "nav",
-      "name": "Navegación institucional",
-      "description": "Enlaces de ruta con aria-current; fila desplazable en móvil.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Navegación principal\"><a href=\"#inicio\" aria-current=\"page\">Inicio</a><a href=\"#cursos\">Mis cursos</a></nav>"
-    },
-    {
-      "description": "Insignia informativa, sin interacción.",
-      "refersTo": "badge",
-      "name": "Código de estudiante",
-      "css": ".ds-badge{display:inline-flex;align-items:center;gap:7px;background:#eeedff;color:#433aa5;padding:6px 10px;border-radius:6px;font:650 12px \"Geist Variable\",sans-serif}",
-      "kind": "chip",
-      "html": "<span class=\"ds-badge\">Código de estudiante</span>"
-    },
-    {
-      "description": "Superficie plana con borde y padding responsive.",
-      "refersTo": "panel",
-      "name": "Panel académico",
-      "css": ".ds-panel{background:var(--surface,#fff);border:1px solid var(--line,#dae0ec);border-radius:var(--radius,12px);padding:28px;color:var(--ink,#151b32);font:16px \"Geist Variable\",sans-serif}.ds-panel h2{font:700 22px/1.25 \"Plus Jakarta Sans Variable\",sans-serif;letter-spacing:-.03em;margin:0 0 16px}.ds-panel p{line-height:1.65;color:var(--muted,#59637a)}@media(max-width:700px){.ds-panel{padding:20px}}",
-      "kind": "card",
-      "html": "<section class=\"ds-panel\"><h2>Calificaciones publicadas</h2><p>Tus docentes todavía no publicaron notas.</p></section>"
+      "refersTo": "input",
+      "description": "Campo de fondo oscuro con borde visible y etiqueta asociada.",
+      "html": "<label class=\"atelier-field\" for=\"atelier-course\">Nombre del curso<input id=\"atelier-course\" placeholder=\"Ej. Diseño de sistemas\"></label>",
+      "css": ".atelier-field{display:grid;gap:9px;font:500 12px 'Geist Variable',sans-serif;color:#d2d4e2}.atelier-field input{width:100%;min-height:46px;border:1px solid #777d97;background:#151824;border-radius:10px;padding:12px 14px;color:var(--ink,#f1f2f8);font:13px 'Geist Variable',sans-serif;caret-color:var(--accent,#a99aff)}.atelier-field input::placeholder{color:#969db2}.atelier-field input:focus{border-color:var(--accent,#a99aff)}.atelier-field input:focus-visible{outline:3px solid var(--accent,#a99aff);outline-offset:4px}"
     }
   ],
   "narrative": {
-    "dos": [
-      "Do conservar los nombres de estado, las etiquetas de campo y el contexto institucional.",
-      "Do usar cifras tabulares y etiquetas por celda en los registros móviles.",
-      "Do respetar el foco visible y la preferencia de movimiento reducido."
-    ],
-    "overview": "Dirección confirmada por el usuario para EduControl 360. La interfaz web prioriza al estudiante que consulta cursos y calificaciones desde una laptop o un teléfono. La navegación institucional oscura enmarca superficies claras y registros académicos alineados.\n\nLa expresión es institucional y legible. Los estados y los datos publicados tienen prioridad sobre la decoración. El entorno de desarrollo es Windows; el producto es una aplicación web responsive.",
-    "donts": [
-      "Don't presentar datos inventados como información académica real.",
-      "Don't llamar tabs ARIA a los botones de gestión con aria-pressed.",
-      "Don't sustituir las fuentes confirmadas por una tipografía distinta."
-    ],
-    "rules": [],
-    "northStar": "Cuaderno académico",
+    "northStar": "Campus Atelier nocturno",
+    "overview": "Portal académico principalmente oscuro, grafito y violeta con acentos lima. El usuario confirmó esta dirección, que sustituye Cuaderno académico. Sora estructura títulos y Geist facilita lectura. Superficies sólidas y bordes transmiten profundidad sin sombras.",
     "keyCharacteristics": [
-      "Navegación navy y acciones índigo.",
-      "Datos académicos alineados, con cifras tabulares.",
-      "Contexto institucional persistente y estados escritos.",
-      "Lectura móvil mediante filas apiladas y etiquetadas."
+      "Orientación violeta y fecha lima",
+      "Cursos, progreso publicado y agenda contextual",
+      "Demo explícita y persistente",
+      "Responsive con menú desplegable nativo"
+    ],
+    "rules": [
+      {
+        "name": "Profundidad tonal",
+        "body": "Separar superficies con tono y bordes; no hay sombras en la hoja global.",
+        "section": "elevation"
+      },
+      {
+        "name": "Identidad confirmada",
+        "body": "La interfaz principalmente oscura Campus Atelier sustituye la anterior dirección clara.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "Do conservar institución y rol en navegación.",
+      "Do conservar foco visible, movimiento reducido y estados pendientes, vacíos y error."
+    ],
+    "donts": [
+      "Don't volver a Cuaderno claro o Plus Jakarta Sans.",
+      "Don't añadir halos neón.",
+      "Don't presentar demo como Google ni funciones futuras como terminadas."
     ]
   }
 }

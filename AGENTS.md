@@ -2,7 +2,7 @@
 - Entorno principal: Windows/PowerShell. Proyecto y almacén pnpm en disco D.
 - Leer PRODUCT.md, DESIGN.md y docs/STATUS.md antes de ampliar el producto.
 - El prompt maestro completo se conserva en docs-prompt-maestro.txt. Trabajar por fases verificables.
-- Prioridad confirmada: portal estudiante. Dirección visual confirmada: Cuaderno académico.
+- Prioridad confirmada: portal estudiante. Dirección visual actual confirmada: Campus Atelier, principalmente oscura; reemplaza Cuaderno académico.
 - Mantener Next.js y NestJS separados; Next.js emite bearer interno solo en servidor. NestJS verifica sesión, usuario, membresía y tenant.
 - Nunca otorgar permisos solo por dominio o correo, ni incluir notas borrador en respuestas del estudiante.
 - No incluir secretos, .env, backups ni datos personales reales en Git. No crear accesos de demostración que parezcan Google real.

@@ -8,7 +8,8 @@ async function handle(request: NextRequest, context: { params: Promise<{ path: s
   if (!allowed.test(route))
     return Response.json({ message: "Ruta no disponible." }, { status: 404 });
   if (request.method === "POST") {
-    if (request.headers.get("origin") !== request.nextUrl.origin)
+    const trustedOrigin = new URL(process.env.NEXTAUTH_URL ?? request.nextUrl.origin).origin;
+    if (request.headers.get("origin") !== trustedOrigin)
       return Response.json({ message: "Origen no permitido." }, { status: 403 });
     if (Number(request.headers.get("content-length") ?? 0) > 16384)
       return Response.json({ message: "Solicitud demasiado grande." }, { status: 413 });

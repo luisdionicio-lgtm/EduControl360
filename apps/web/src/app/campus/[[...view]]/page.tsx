@@ -4,6 +4,8 @@ import { CampusShell } from "@/components/campus-shell";
 import { Onboarding } from "@/components/onboarding";
 import { campusContext, studentData } from "@/lib/campus";
 import { notFound } from "next/navigation";
+import { StudentDashboard } from "@/components/student-dashboard";
+import { isDemoEnabled } from "@/lib/demo";
 const days = ["", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
 const statuses: Record<string, string> = {
   PRESENT: "Presente",
@@ -40,6 +42,25 @@ export default async function Campus({
   const grades = enrollments.flatMap((e) =>
     e.grades.map((g) => ({ ...g, course: e.section.course.name, code: e.section.course.code })),
   );
+  if (route === "home" && student && enrollments.length)
+    return (
+      <CampusShell me={me} active={active} institutionId={institutionId}>
+        <div className="intro">
+          <div>
+            <h1>
+              Hola, {me.name.split(" ")[0]}
+              <span className="heading-dot">.</span>
+            </h1>
+            <p>Un buen día para seguir construyendo tu futuro.</p>
+          </div>
+          <span className="semester-label">
+            {enrollments[0].section.period.name}
+            <span>Período académico</span>
+          </span>
+        </div>
+        <StudentDashboard student={student} institutionId={institutionId!} />
+      </CampusShell>
+    );
   return (
     <CampusShell me={me} active={active} institutionId={institutionId}>
       <div className="intro">
@@ -63,7 +84,9 @@ export default async function Campus({
           <dl>
             <dt>Nombre</dt>
             <dd>{me.name}</dd>
-            <dt>Correo verificado por Google</dt>
+            <dt>
+              {isDemoEnabled() ? "Correo ficticio de demostración" : "Correo verificado por Google"}
+            </dt>
             <dd>{me.email}</dd>
             <dt>Instituciones vinculadas</dt>
             <dd>{me.memberships.length}</dd>
@@ -184,6 +207,44 @@ export default async function Campus({
                 docente.
               </p>
             </section>
+          )}
+          {route === "courses" && (
+            <div className="course-detail-grid">
+              {enrollments.map((e) => (
+                <section id={"course-" + e.section.id} className="panel course-detail" key={e.id}>
+                  <div className="section-heading">
+                    <h2>{e.section.course.name}</h2>
+                    <span className="badge">{e.section.course.code}</span>
+                  </div>
+                  <p className="muted">
+                    {e.section.teacher?.name ?? "Docente por asignar"} · {e.section.name} ·{" "}
+                    {e.section.course.credits} créditos
+                  </p>
+                  <h3>Evaluaciones del curso</h3>
+                  <ul className="evaluation-list">
+                    {e.section.evaluations.map((v) => {
+                      const grade = e.grades.find((g) => g.evaluation.id === v.id);
+                      return (
+                        <li key={v.id}>
+                          <div>
+                            <strong>{v.name}</strong>
+                            <small>
+                              {new Date(v.dueAt).toLocaleDateString("es-PE", {
+                                timeZone: "America/Lima",
+                              })}{" "}
+                              · Peso {v.weight}%
+                            </small>
+                          </div>
+                          <span className={grade ? "score-tag" : "pending-tag"}>
+                            {grade ? Number(grade.score).toFixed(2) : "Por publicar"}
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </section>
+              ))}
+            </div>
           )}
           {route === "attendance" && (
             <section className="panel">

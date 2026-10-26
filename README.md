@@ -22,3 +22,6 @@ pnpm test:e2e
 Requiere PostgreSQL y Redis levantados. [Arquitectura](docs/architecture/decisions.md). [Estado y pendientes](docs/STATUS.md).
 ## Alcance
 Fundamentos y primer núcleo académico implementados. Google OIDC implementado y pendiente de verificación con credenciales del propietario. No se presenta como un SaaS comercial terminado ni listo para producción. Fases posteriores permanecen registradas en STATUS.md; el primer flujo no se considera cerrado hasta probar Google y DNS con accesos reales.
+
+## Demo Campus Atelier
+Interfaz principalmente oscura con Sora y Geist. Ejecutar `pnpm demo` y abrir http://localhost:3010/demo. [Guía y recorrido](docs/demo.md).

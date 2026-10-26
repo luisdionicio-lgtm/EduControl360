@@ -1,0 +1,89 @@
+name: educontrol360-demo
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: ${DEMO_DB_PASSWORD:?Set DEMO_DB_PASSWORD}
+      POSTGRES_DB: educontrol_demo
+    ports: ["127.0.0.1:54339:5432"]
+    volumes: [demo_postgres:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U demo -d educontrol_demo"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+  redis:
+    image: redis:7-alpine
+    command: [redis-server, --appendonly, "yes"]
+    ports: ["127.0.0.1:63809:6379"]
+    volumes: [demo_redis:/data]
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+  api:
+    image: educontrol360-api:atelier
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile
+      target: api
+    environment:
+      DATABASE_URL: postgresql://demo:${DEMO_DB_PASSWORD}@postgres:5432/educontrol_demo
+      REDIS_URL: redis://redis:6379
+      API_SESSION_SECRET: ${DEMO_API_SECRET:?Set DEMO_API_SECRET}
+      APP_ENV: demo
+      DEMO_MODE: "true"
+      DEMO_INSTANCE_ID: atelier-local
+    ports: ["127.0.0.1:4020:4000"]
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis: { condition: service_healthy }
+    healthcheck:
+      test:
+        [
+          CMD,
+          node,
+          -e,
+          "fetch('http://127.0.0.1:4000/health/ready').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 5s
+      timeout: 4s
+      retries: 20
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+  web:
+    image: educontrol360-web:atelier
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile
+      target: web
+    environment:
+      DATABASE_URL: postgresql://demo:${DEMO_DB_PASSWORD}@postgres:5432/educontrol_demo
+      API_URL: http://api:4000
+      NEXTAUTH_URL: http://localhost:3010
+      NEXTAUTH_SECRET: ${DEMO_AUTH_SECRET:?Set DEMO_AUTH_SECRET}
+      API_SESSION_SECRET: ${DEMO_API_SECRET}
+      APP_ENV: demo
+      DEMO_MODE: "true"
+      DEMO_INSTANCE_ID: atelier-local
+    ports: ["127.0.0.1:3010:3000"]
+    depends_on:
+      api: { condition: service_healthy }
+    healthcheck:
+      test:
+        [
+          CMD,
+          node,
+          -e,
+          "fetch('http://127.0.0.1:3000/demo').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 5s
+      timeout: 4s
+      retries: 20
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+volumes:
+  demo_postgres:
+  demo_redis:

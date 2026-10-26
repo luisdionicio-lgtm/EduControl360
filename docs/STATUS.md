@@ -34,3 +34,6 @@ Los fixtures se eliminan al terminar.
 | 7 | Gemini, analítica avanzada, automatizaciones y optimización pendientes. |
 ## Puerta de avance
 El primer flujo obligatorio no se declara cerrado hasta validar Google y DNS con accesos reales. No activar cobros, importar datos personales reales ni anunciar producción con este estado. El siguiente trabajo debe cerrar identidad real antes de ampliar los módulos, conforme al orden del prompt.
+
+## Actualización: Campus Atelier y demo local
+El usuario eligió interfaz principalmente oscura. Se reemplazó Cuaderno académico por Campus Atelier: grafito, violeta y lima, títulos Sora y lectura Geist. Dashboard con agenda semanal, cursos, notas y promedios parciales calculados. Demo Docker aislada con perfiles explícitos estudiante/docente/administrador, PostgreSQL propio y cookies separadas. Pruebas de navegador verificaron publicación/consulta de nota y creación de programa. Google real y fases posteriores continúan pendientes. Consultar docs/demo.md.
