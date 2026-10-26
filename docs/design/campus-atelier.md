@@ -9,3 +9,4 @@ FORM: propuestas grounded: agenda universitaria, señalética de campus, Campus 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 ## Demo
 Compose independiente, volúmenes y secretos propios, enlazado solo a loopback. Perfil local explícito; nunca se presenta como Google. Tres roles sobre PostgreSQL real. No inventar los módulos aún pendientes.
+Actualización por imagen de referencia: interior luminoso, rail navy, superficies blancas/azules, acentos eléctricos. Se conserva la estructura funcional y la honestidad de datos. No se copian métricas ni módulos ficticios de la imagen.

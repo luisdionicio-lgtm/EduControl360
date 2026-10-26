@@ -23,3 +23,4 @@ El test restaura la nota modificada y elimina el programa de prueba.
 `docker compose --env-file .env.demo -f docker-compose.demo.yml down` conserva los datos. No usar -v salvo que se quiera borrar exclusivamente la base ficticia.
 ## Alcance
 Funciona el núcleo académico implementado. Google real, DNS institucional, finanzas, Workspace, Gemini, comunicaciones y módulos futuros permanecen pendientes según STATUS.md. Esta demo no representa las siete fases terminadas.
+Un solo grupo activo: se retiraron los contenedores del entorno inicial conservando sus volúmenes. Los cuatro servicios de demo siguen dentro del mismo grupo Compose.

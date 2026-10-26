@@ -51,8 +51,8 @@ const db = createDatabase(
     assert.equal(
       await student.evaluate(
         () =>
-          getComputedStyle(document.body).backgroundColor === "rgb(17, 19, 28)" ||
-          getComputedStyle(document.documentElement).backgroundColor === "rgb(17, 19, 28)",
+          getComputedStyle(document.body).backgroundColor === "rgb(238, 243, 252)" ||
+          getComputedStyle(document.documentElement).backgroundColor === "rgb(238, 243, 252)",
       ),
       true,
     );

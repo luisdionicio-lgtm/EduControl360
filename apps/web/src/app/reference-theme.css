@@ -1,0 +1,546 @@
+/* Campus reference: luminous work surfaces, dark institutional navigation. */
+:root {
+  color-scheme: light;
+  --canvas: #eef3fc;
+  --surface: #ffffff;
+  --surface-raised: #f5f8ff;
+  --ink: #142143;
+  --muted: #536588;
+  --accent: #215df5;
+  --brand: #215df5;
+  --lime: #d6efff;
+  --line: #d4e0f5;
+  --navy: #08162d;
+  --success: #087c67;
+  background: var(--canvas);
+  color: var(--ink);
+}
+.rail {
+  background: #08162d;
+  border-color: #173050;
+}
+.rail .brand {
+  color: #fff;
+}
+.brand-mark {
+  background: #dbeaff;
+  color: #1458f0;
+}
+.brand-number {
+  color: #22b7ef;
+}
+.rail .institution-box {
+  border-color: #2a4263;
+  background: #10233e;
+}
+.rail .institution-box strong {
+  color: #eff6ff;
+}
+.rail .institution-box small,
+.rail footer small {
+  color: #acbdda;
+}
+.rail .institution-icon {
+  color: #72cfff;
+}
+.rail nav a {
+  color: #c0cee6;
+}
+.rail nav a[aria-current="page"] {
+  background: #253f70;
+  color: #fff;
+}
+.rail nav a[aria-current="page"] svg {
+  color: #b5d5ff;
+}
+.rail nav a:hover {
+  background: #1d3558;
+}
+.nav-active-dot {
+  background: #4cd1ff;
+}
+.rail .nav-separator,
+.rail-person {
+  border-color: #263e60;
+}
+.rail .nav-separator {
+  background: #263e60;
+}
+.rail-person strong {
+  color: #f0f6ff;
+}
+.rail footer .button {
+  color: #bcd0ed;
+}
+.rail footer .button:hover {
+  background: #183252;
+  color: #fff;
+}
+.avatar {
+  background: #dbe7ff;
+  color: #2553a7;
+}
+.rail .avatar {
+  background: #24446f;
+  color: #e5f2ff;
+}
+.workspace {
+  background: linear-gradient(145deg, #e7f0ff 0%, #f5f8fe 35%, #edf3fc 100%);
+}
+.topbar {
+  border-color: #d4e0f5;
+}
+.breadcrumb strong {
+  color: #1a2e54;
+}
+.topbar time {
+  color: #52688e;
+}
+.demo-banner {
+  color: #536888;
+}
+.demo-banner strong {
+  color: #2558a8;
+}
+.demo-banner a {
+  color: #225bd7;
+}
+.live-dot {
+  background: #069d81;
+}
+.context-selector {
+  color: #4f668d;
+}
+.context-selector select {
+  background: #f9fbff;
+  border-color: #bacceb;
+  color: #263e69;
+}
+.context-submit {
+  color: #355a91;
+}
+.intro h1 {
+  color: #10234d;
+}
+.heading-dot {
+  color: #1471ff;
+}
+.semester-label {
+  color: #163e7e;
+}
+.semester-label span {
+  color: #536588;
+}
+.study-feature {
+  background: linear-gradient(112deg, #d8eaff, #e8e5ff);
+  color: #122b60;
+  min-height: 220px;
+}
+.feature-copy h2 {
+  color: #122b60;
+}
+.feature-copy > p,
+.feature-meta {
+  color: #3e5888;
+}
+.feature-date {
+  background: #ffffff;
+  color: #1d55aa;
+  box-shadow: 0 8px 22px #5478ad1a;
+}
+.feature-date b {
+  border-color: #d4e1fa;
+}
+.button {
+  background: #155bf2;
+  color: #fff;
+}
+.button:hover {
+  background: #0647d0;
+}
+.button.secondary {
+  background: #e4edff;
+  color: #2354ae;
+}
+.button.secondary:hover {
+  background: #cddfff;
+  color: #123b88;
+}
+.button.dark-button {
+  background: #185ce9;
+  color: white;
+}
+.button.dark-button:hover {
+  background: #1049c4;
+}
+.academic-strip {
+  border-color: #ccd9ee;
+}
+.academic-strip > div + div {
+  border-color: #cddaf0;
+}
+.academic-strip dd {
+  color: #143364;
+}
+.academic-strip svg {
+  color: #4786d9;
+}
+.academic-strip dt {
+  color: #50678f;
+}
+.count {
+  background: #e2ebff;
+  color: #2554ad;
+}
+.text-link {
+  color: #195de2;
+}
+.text-link:hover {
+  color: #0b42ab;
+}
+.course-card {
+  background: #fff;
+  border-color: #d3e0f5;
+}
+.course-card:hover {
+  background: #f6faff;
+  border-color: #92b4ec;
+}
+.tone-0 {
+  --tone: #1769ef;
+}
+.tone-1 {
+  --tone: #8d43ed;
+}
+.tone-2 {
+  --tone: #f18424;
+}
+.course-icon {
+  background: color-mix(in srgb, var(--tone) 10%, #fff);
+  color: var(--tone);
+}
+.course-card h3 {
+  color: #162d58;
+}
+.course-card > p,
+.course-code,
+.course-progress-label,
+.course-card footer {
+  color: #52678c;
+}
+.course-card footer {
+  border-color: #dee6f4;
+}
+.course-progress-label strong {
+  color: #214378;
+}
+.course-card progress,
+.course-card progress::-webkit-progress-bar {
+  background: #e6edf8;
+}
+.course-top > svg {
+  color: #6582af;
+}
+.grade-list {
+  border-color: #cfddf2;
+}
+.grade-list-row {
+  border-color: #d6e2f3;
+}
+.grade-row-icon {
+  background: #dff6ee;
+  color: #07846f;
+}
+.grade-list-row strong {
+  color: #17325f;
+}
+.grade-value {
+  color: #2059ce;
+}
+.grade-list-row p,
+.grade-date {
+  color: #587098;
+}
+.agenda-panel,
+.performance-panel,
+.upcoming-panel {
+  background: #ffffff;
+  border-color: #d2dff4;
+}
+.section-heading > svg,
+.agenda-month {
+  color: #5676a4;
+}
+.week-picker button {
+  color: #526b94;
+}
+.week-picker strong {
+  color: #1b3967;
+}
+.week-picker button[aria-pressed="true"] {
+  background: #1e63ee;
+  color: #e8f2ff;
+}
+.week-picker button[aria-pressed="true"] strong {
+  color: #fff;
+}
+.week-picker i {
+  background: #1468eb;
+}
+.week-picker button[aria-pressed="true"] i {
+  background: #b9e6ff;
+}
+.week-picker button:hover:not([aria-pressed="true"]) {
+  background: #e7f0ff;
+}
+.agenda-class {
+  border-color: #dae5f5;
+}
+.agenda-class-time {
+  color: #2162d7;
+}
+.agenda-class h3,
+.upcoming-item h3 {
+  color: #18325b;
+}
+.agenda-class p,
+.agenda-empty {
+  color: #506c95;
+}
+.performance-score > strong {
+  color: #2159cf;
+}
+.performance-score > span,
+.performance-caption {
+  color: #526b92;
+}
+.performance-row > div {
+  color: #526b92;
+}
+.performance-row strong {
+  color: #213c67;
+}
+.performance-row meter,
+.performance-row meter::-webkit-meter-bar {
+  background: #e4ecf8;
+}
+.attendance-brief {
+  color: #087c67;
+  border-color: #dae5f5;
+}
+.upcoming-item {
+  border-color: #dae5f5;
+}
+.upcoming-date {
+  background: #eee5ff;
+  color: #7738cf;
+}
+.upcoming-item p,
+.weight-label {
+  color: #526b92;
+}
+.panel {
+  background: #ffffff;
+  border-color: #d0dff4;
+}
+.badge {
+  background: #e4edff;
+  color: #2554b0;
+}
+.notice {
+  background: #fff4db;
+  color: #77541c;
+}
+.error {
+  color: #ba2944;
+}
+.empty h2 {
+  color: #173362;
+}
+.panel th {
+  color: #516b94;
+}
+.panel td {
+  color: #1b355f;
+}
+.panel td.grade {
+  color: #1b60d7;
+}
+.score-tag {
+  background: #e4f5ef;
+  color: #087c67;
+}
+.pending-tag {
+  color: #62749b;
+}
+.field,
+label {
+  color: #29466f;
+}
+input,
+select {
+  background: #f9fbff;
+  border-color: #8099bf;
+  color: #16345f;
+}
+input::placeholder {
+  color: #60799e;
+}
+.tabs {
+  border-color: #ccdaef;
+}
+.tabs button {
+  color: #4b6894;
+}
+.tabs button[aria-pressed="true"] {
+  background: #dfeaff;
+  color: #1b56c4;
+}
+.tabs button:hover {
+  background: #e6efff;
+}
+.registry {
+  background: #f7faff;
+  border-color: #cadbf3;
+}
+.registry > summary {
+  color: #2c589c;
+}
+.program-list li {
+  background: #e7effc;
+  color: #315889;
+}
+.result {
+  background: #e4f5ed;
+  color: #246548;
+}
+.management-overview > div {
+  border-color: #cbdaf0;
+}
+.management-overview dd {
+  color: #1e58bf;
+}
+.workspace-footer {
+  border-color: #cddcf2;
+  color: #597296;
+}
+.workspace-footer > span:first-child {
+  color: #265bb6;
+}
+.mobile-navigation {
+  border-color: #d3dff1;
+}
+.mobile-navigation nav a {
+  color: #365982;
+}
+.mobile-navigation nav a[aria-current="page"] {
+  background: #e0ebff;
+  color: #165bce;
+}
+.mobile-navigation nav a:hover {
+  background: #e7efff;
+}
+.mobile-navigation summary > span {
+  color: #4d6d9c;
+}
+.login-story {
+  background: #0b1932;
+}
+.login-story .brand {
+  color: white;
+}
+.login-statement h1 {
+  color: #f5f8ff;
+}
+.login-statement h1 span {
+  color: #8fcaff;
+}
+.login-statement > p {
+  color: #bdcee9;
+}
+.login-form {
+  background: #f0f5ff;
+}
+.login-form h2 {
+  color: #153364;
+}
+.login-symbol {
+  background: #dbe9ff;
+  color: #1a61e1;
+}
+.login-form .notice {
+  background: #fff1d6;
+  color: #77551d;
+}
+.login-security {
+  color: #4b668f;
+}
+.login-security svg {
+  color: #3171c6;
+}
+.back-link,
+.demo-login-link {
+  color: #1c5bc5;
+}
+.login-form > footer {
+  color: #587499;
+}
+.demo-page {
+  color: #142b54;
+}
+.public-header {
+  border-color: #d1ddf0;
+}
+.demo-label {
+  color: #43658e;
+}
+.demo-intro h1 span {
+  color: #245ed8;
+}
+.demo-profile {
+  background: white;
+  border-color: #cbdcf3;
+  color: #18355f;
+}
+.demo-profile:hover {
+  background: #f8fbff;
+  border-color: var(--tone);
+}
+.demo-profile > strong {
+  color: #536e96;
+}
+.demo-enter {
+  border-color: #dbe5f5;
+}
+.demo-explainer p {
+  color: #536b92;
+}
+.demo-explainer {
+  color: #2b70c8;
+}
+.demo-scope {
+  border-color: #ceddf2;
+}
+.demo-scope summary {
+  color: #315fa9;
+}
+.demo-scope p {
+  color: #526e96;
+}
+.public-footer {
+  color: #5c759b;
+}
+@media (max-width: 760px) {
+  .workspace {
+    background: #eef4ff;
+  }
+  .mobile-navigation .brand {
+    color: #193668;
+  }
+  .grade-value {
+    color: #215bd0;
+  }
+  .table-wrap td {
+    border-color: #d8e4f5;
+  }
+}

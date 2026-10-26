@@ -1,35 +1,37 @@
 ---
 name: Campus Atelier — EduControl 360
-description: Portal académico principalmente oscuro, grafito, violeta y lima.
+description: Portal académico luminoso con navegación navy y acentos azul, violeta, menta y naranja.
 colors:
-  canvas: "#11131c"
-  surface: "#1b1e2a"
-  surface-raised: "#222635"
-  ink: "#f1f2f8"
-  muted: "#a4aabd"
-  accent: "#a99aff"
-  brand: "#a99aff"
-  lime: "#d4edb2"
-  line: "#303446"
-  navy: "#151721"
-  success: "#b7dfa0"
-  feature: "#b0a1f6"
-  feature-ink: "#241d3c"
-  date: "#d7ecb2"
-  date-ink: "#2d3b20"
-  button-ink: "#211a34"
-  button-hover: "#c1b5ff"
-  secondary: "#2b2a40"
-  secondary-ink: "#d6cbff"
-  secondary-hover: "#3b3655"
-  input: "#151824"
-  input-border: "#777d97"
-  error: "#ff9cac"
-  notice: "#3b3123"
-  notice-ink: "#e3c595"
-  nav-active: "#302b47"
-  nav-active-ink: "#dcd5ff"
-  nav-hover: "#242736"
+  canvas: "#eef3fc"
+  surface: "#ffffff"
+  surface-raised: "#f5f8ff"
+  ink: "#142143"
+  muted: "#536588"
+  accent: "#215df5"
+  brand: "#215df5"
+  lime: "#d6efff"
+  line: "#d4e0f5"
+  navy: "#08162d"
+  success: "#087c67"
+  feature-start: "#d8eaff"
+  feature-end: "#e8e5ff"
+  feature-ink: "#122b60"
+  date: "#ffffff"
+  date-ink: "#1d55aa"
+  button: "#155bf2"
+  button-ink: "#ffffff"
+  button-hover: "#0647d0"
+  secondary: "#e4edff"
+  secondary-ink: "#2354ae"
+  secondary-hover: "#cddfff"
+  input: "#f9fbff"
+  input-border: "#8099bf"
+  error: "#ba2944"
+  notice: "#fff4db"
+  notice-ink: "#77541c"
+  nav-active: "#253f70"
+  nav-active-ink: "#ffffff"
+  nav-hover: "#1d3558"
 typography:
   headline:
     fontFamily: '"Sora Variable", sans-serif'
@@ -63,7 +65,7 @@ spacing:
   workspace: "0 36px 24px"
 components:
   button-primary:
-    backgroundColor: "{colors.accent}"
+    backgroundColor: "{colors.button}"
     textColor: "{colors.button-ink}"
     rounded: "{rounded.control}"
     padding: "{spacing.control}"
@@ -89,37 +91,37 @@ components:
 
 ## Overview
 
-**Creative North Star: Campus Atelier nocturno.** Un espacio académico de grafito con orientación violeta, fechas lima y lectura clara. Esta dirección principalmente oscura, confirmada por el usuario, sustituye Cuaderno académico. La referencia implementada es `apps/web/src/app/globals.css` y los componentes actuales; este documento describe su estado, no una propuesta futura.
+**Creative North Star: Campus Atelier — referencia luminosa.** La última imagen del usuario («recuerda seguir así por dentro») confirma navegación navy oscura y superficies blancas/azules luminosas, con azul eléctrico, violeta, menta y naranja. Esta referencia sustituye la preferencia anterior por una interfaz principalmente oscura; no restaurar el antiguo Cuaderno ni sus tipografías.
 
-El estudiante encuentra institución, cursos, notas y agenda. La voz es española, institucional y directa; docentes y administradores conservan sus operaciones por membresía. La identidad se construye con tipografía y superficies sólidas, sin halos neón ni imágenes decorativas.
+El estado efectivo resulta de `reference-theme.css`, importado después de `globals.css`: los overrides gobiernan color y algunos acabados; la estructura, tipografía y responsive siguen mayormente en globals. El portal mantiene español institucional, Sora/Geist y datos académicos contextuales.
 
 **Key Characteristics:**
 
-- Grafito por defecto, violeta para orientación y acción, lima para fecha y avance.
-- Sora en títulos, Geist en lectura, iconos Lucide.
-- Datos reales en el producto; demo explícita con datos ficticios persistentes.
+- Rail navy, workspace azul muy claro y paneles blancos.
+- Acción azul eléctrico; cursos azul, violeta y naranja; éxito menta.
+- Demo explícita con datos ficticios persistentes y permisos por rol.
 
 ## Colors
 
-Los valores normativos están en el frontmatter. Los nombres `canvas`, `surface`, `surface-raised`, `ink`, `muted`, `accent`, `brand`, `lime`, `line`, `navy` y `success` corresponden a propiedades CSS existentes.
+El frontmatter registra los valores efectivos. `accent` y `brand` son azul eléctrico; el botón principal tiene un valor local propio `#155bf2`, distinto del token `accent`. El nombre heredado `lime` ahora contiene azul pálido y no describe una lima visible.
 
 ### Primary
 
-Violeta `accent` identifica enlaces, foco y botones. El gran panel de orientación usa `feature`, con tinta oscura `feature-ink`; no intercambiarlo automáticamente con `accent`.
+Azul eléctrico para enlaces y foco (`accent`), botones (`button`) y agenda seleccionada (`#1e63ee`). El panel de orientación usa un degradado azul/violeta claro con tinta azul oscura.
 
 ### Secondary
 
-Lima `lime` resalta selección de texto y elementos de avance; el bloque de fecha utiliza su propio color observado `date`. Los cursos tienen tonos locales definidos por `--tone`; no representan por sí solos un estado semántico.
+Los tonos de cursos son `#1769ef`, `#8d43ed` y `#f18424`. Menta identifica éxito y asistencia; próximas evaluaciones usan fecha violeta clara. No interpretar los tonos de curso como estados semánticos.
 
 ### Neutral
 
-`canvas` sostiene la página; `navy` el rail; `surface` y `surface-raised` separan contenidos mediante tono y líneas. Texto principal `ink` y secundario `muted`. Error rosado, éxito verde y avisos ámbar llevan texto explicativo, sin depender solo del color.
+Canvas azul pálido, panel blanco y tinta navy. El rail mantiene colores propios claros sobre navy: activo `#253f70`, texto blanco, hover `#1d3558`. El menú móvil es claro, activo `#e0ebff` con texto `#165bce`; no copiarle los colores del rail. Errores rojos y avisos ámbar conservan texto explicativo.
 
 ## Typography
 
 **Display Font:** Sora Variable, sans-serif. **Body Font:** Geist Variable, sans-serif. No hay una tercera familia mono.
 
-H1 usa el tamaño fluido del frontmatter; H2 18px y H3 15px, peso 600, con ajustes locales. Los títulos de cursos usan 550 y 14px en escritorio. El panel violeta usa `clamp(23px, 2.1vw, 29px)` y tracking -0.04em. La portada demo usa `clamp(36px, 4vw, 56px)` y peso 550. Los párrafos generales tienen máximo 70ch; las descripciones y metadatos son más compactos. El tamaño base 15px no sustituye los tamaños locales de 8–13px que existen en el dashboard; su legibilidad requiere revisión visual y no equivale a una certificación de accesibilidad.
+H1 usa el tamaño fluido del frontmatter; H2 18px y H3 15px, peso 600, con ajustes locales. Los títulos de cursos usan 550 y 14px en escritorio. El panel azul/violeta claro usa `clamp(23px, 2.1vw, 29px)` y tracking -0.04em. La portada demo usa `clamp(36px, 4vw, 56px)` y peso 550. Los párrafos generales tienen máximo 70ch; las descripciones y metadatos son más compactos. El tamaño base 15px no sustituye los tamaños locales de 8–13px que existen en el dashboard; su legibilidad requiere revisión visual y no equivale a una certificación de accesibilidad.
 
 ## Layout
 
@@ -135,7 +137,7 @@ Tablas en escritorio permiten desplazamiento horizontal. Hasta 760px, cada fila 
 
 ## Elevation & Depth
 
-Profundidad por contraste tonal, bordes y separación; la hoja global no define sombras. Las tarjetas de curso se elevan 3px al hover; los perfiles demo 4px. Botones desplazan 1px al pulsar. Transiciones habituales de 160ms, perfiles de 180ms; desplazamientos con `cubic-bezier(0.16, 1, 0.3, 1)` y color con `ease-out`. El spinner gira en 900ms. `prefers-reduced-motion: reduce` elimina animaciones y transiciones y restaura scroll automático.
+Profundidad principalmente por contraste tonal, bordes y separación. El override añade sombra a la fecha blanca: `0 8px 22px #5478ad1a`; no extenderla automáticamente a todas las tarjetas. Las tarjetas de curso se elevan 3px al hover; los perfiles demo 4px. Botones desplazan 1px al pulsar. Transiciones habituales de 160ms, perfiles de 180ms; desplazamientos con `cubic-bezier(0.16, 1, 0.3, 1)` y color con `ease-out`. El spinner gira en 900ms. `prefers-reduced-motion: reduce` elimina animaciones y transiciones y restaura scroll automático.
 
 ## Shapes
 
@@ -145,19 +147,19 @@ Paneles y orientación de 16px; cursos de 14px; fecha de 12px; botones, campos y
 
 ### Buttons
 
-Acción principal violeta con tinta oscura, mínimo 44px, padding 12px 18px y texto 12px/600. Hover más claro; variante secundaria oscura y variante `dark-button` de 38px dentro del panel violeta. Disabled usa opacidad 0.5 y cursor no permitido. Foco visible global de 3px en `accent`, separado 4px. No afirmar que todos los controles alcanzan 44px: existen variantes compactas.
+Acción principal azul con texto blanco, mínimo 44px, padding 12px 18px y texto 12px/600. Hover azul más profundo; variante secundaria azul clara y variante `dark-button` de 38px dentro del panel azul/violeta claro. Disabled usa opacidad 0.5 y cursor no permitido. Foco visible global de 3px en `accent`, separado 4px. No afirmar que todos los controles alcanzan 44px: existen variantes compactas.
 
 ### Cards / Containers
 
-Panel general de 26px de padding, 21px en móvil. Curso enlazable con borde, padding 18px 16px y progreso de evaluaciones publicadas. Los porcentajes y promedios derivan de datos académicos; no sustituir valores ausentes por resultados inventados. La fecha lima pertenece a la próxima clase; sin próxima clase se muestra un icono y mensaje alternativo.
+Panel general de 26px de padding, 21px en móvil. Curso enlazable con borde, padding 18px 16px y progreso de evaluaciones publicadas. Los porcentajes y promedios derivan de datos académicos; no sustituir valores ausentes por resultados inventados. La fecha blanca pertenece a la próxima clase; sin próxima clase se muestra un icono y mensaje alternativo.
 
 ### Inputs / Fields
 
-Campos oscuros, borde `input-border`, mínimo 46px y radio 10px. Foco cambia borde a `accent` y mantiene outline. Checkbox de 21px con etiqueta activable de mínimo 44px. Estados de error, aviso y vacío son texto contextual. Los campos conservan 13px incluso en móvil; no se documenta prevención universal del zoom en iOS.
+Campos claros, borde `input-border`, mínimo 46px y radio 10px. Foco cambia borde a `accent` y mantiene outline. Checkbox de 21px con etiqueta activable de mínimo 44px. Estados de error, aviso y vacío son texto contextual. Los campos conservan 13px incluso en móvil; no se documenta prevención universal del zoom en iOS.
 
 ### Navigation
 
-Enlaces con icono y texto; activo vía `aria-current="page"`, fondo violeta oscuro e indicador. Hover grafito más claro. Menú móvil nativo desplegable, con enlaces en dos columnas. Institución y rol determinan navegación y permisos; conservar el contexto de institución en rutas.
+Enlaces con icono y texto; activo vía `aria-current="page"`, fondo navy azulado e indicador cian en el rail. Hover grafito más claro. Menú móvil nativo desplegable, con enlaces en dos columnas. Institución y rol determinan navegación y permisos; conservar el contexto de institución en rutas.
 
 ### Agenda
 
@@ -169,9 +171,13 @@ Tres perfiles locales explícitos: estudiante Lucía Torres, docente Diego Mendo
 
 ## Do's and Don'ts
 
-- **Do** reutilizar los tokens oscuros y los tamaños locales antes de añadir variantes.
+- **Do** reutilizar los tokens efectivos de reference-theme.css y los tamaños locales antes de añadir variantes.
 - **Do** mantener estados vacíos, pendientes, error y contexto de institución.
 - **Do** preservar foco, teclado, texto de estados y movimiento reducido. WCAG 2.2 AA es un objetivo, no un resultado certificado por este documento.
-- **Don't** reintroducir la paleta clara Cuaderno ni Plus Jakarta Sans.
+- **Don't** restaurar la dirección completamente oscura anterior ni Plus Jakarta Sans.
 - **Don't** añadir halos neón, sombras arbitrarias ni imágenes sin procedencia.
 - **Don't** confundir datos ficticios persistentes con producción o autenticación Google.
+
+La demo activa utiliza un único grupo Compose propio; el grupo inicial está detenido y sus volúmenes conservados. Esto describe el entorno actual, no un token visual.
+
+
